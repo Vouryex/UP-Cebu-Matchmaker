@@ -1,4 +1,4 @@
-package application;
+package main;
 	
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -11,9 +11,9 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			Parent root = FXMLLoader.load(getClass().getResource("/application/Login.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("/view/Login.fxml"));
 			Scene scene = new Scene(root);
-			scene.getStylesheets().add(getClass().getResource("pastel.css").toExternalForm());
+			scene.getStylesheets().add(getClass().getResource("/theme/pastel.css").toExternalForm());
 			primaryStage.setResizable(false);
 			primaryStage.setTitle("Log in");
 			primaryStage.setScene(scene);
