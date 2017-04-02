@@ -7,6 +7,7 @@ public class LoginModel {
 	public LoginModel() {
 		connection = SqLiteConnection.Connector();
 		if (connection == null) {
+			System.out.println("connection not successful");
 			System.exit(1);
 		}
 	}
