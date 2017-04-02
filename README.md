@@ -11,3 +11,8 @@ know who our schoolmates are and worse, we do not talk with them. This app will 
 strengthen the university camaraderie and hopefully help the user find the love of
 his/her life. The app; however, will not be so game changing because it wouldn’t be in
 the web so for now, the data entries will be stored in the user’s local machine.
+
+## Developers
+* **Gamaliel E. Petralba** - [Vouryex](https://github.com/Vouryex)
+* **Jerome Enrico M. Requioma** - [jmrequioma](https://github.com/jmrequioma)
+* **Micah Nicole ChuIm** - [micahnut](https://github.com/micahnut)
