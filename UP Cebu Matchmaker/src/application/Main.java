@@ -15,6 +15,7 @@ public class Main extends Application {
 			Scene scene = new Scene(root);
 			scene.getStylesheets().add(getClass().getResource("pastel.css").toExternalForm());
 			primaryStage.setResizable(false);
+			primaryStage.setTitle("Log in");
 			primaryStage.setScene(scene);
 			primaryStage.show();
 		} catch(Exception e) {
