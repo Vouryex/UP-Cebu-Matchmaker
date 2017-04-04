@@ -31,6 +31,7 @@ public class SignUpModel {
 			preparedStatement.executeUpdate();
 			return true;
 		} catch (Exception e) {
+			System.out.println(e);
 			return false;
 		} finally {
 			preparedStatement.close();
