@@ -8,9 +8,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.LoginController">
+<AnchorPane prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginController">
    <children>
-      <Button layoutX="277.0" layoutY="310.0" mnemonicParsing="false" onAction="#Login" text="Login" />
+      <Button layoutX="277.0" layoutY="310.0" mnemonicParsing="false" onAction="#login" text="Login" />
       <TextField fx:id="usernameField" layoutX="226.0" layoutY="213.0" promptText="Username" />
       <PasswordField fx:id="passwordField" layoutX="226.0" layoutY="248.0" promptText="Password" />
       <Label layoutX="157.0" layoutY="74.0" text="UP Cebu Matchmaker" wrapText="true">
@@ -18,7 +18,7 @@
             <Font name="Trebuchet MS" size="30.0" />
          </font>
       </Label>
-      <Hyperlink fx:id="signUpLbl" layoutX="226.0" layoutY="273.0" text="Sign up" />
+      <Hyperlink fx:id="signUpLink" layoutX="226.0" layoutY="273.0" onAction="#signUp" text="Sign up" />
       <Label fx:id="errorLbl" layoutX="226.0" layoutY="184.0" prefHeight="17.0" prefWidth="149.0" textFill="#eb0404" />
    </children>
 </AnchorPane>
