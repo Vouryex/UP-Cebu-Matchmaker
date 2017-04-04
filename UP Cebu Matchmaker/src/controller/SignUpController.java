@@ -1,6 +1,7 @@
 package controller;
 
 import java.sql.SQLException;
+import java.time.format.DateTimeFormatter;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -21,12 +22,13 @@ public class SignUpController {
 	
 	public void signUp(ActionEvent event) {
 		try {
+			String date = birthdatePicker.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
 			System.out.println(firstNameField.getText());
 			System.out.println(surnameField.getText());
-			System.out.println(birthdatePicker.toString());
+			System.out.println(date);
 			System.out.println(usernameField.getText());
 			System.out.println(passwordField.getText());
-			if (signUpModel.isDataInserted(firstNameField.getText(), surnameField.getText(), birthdatePicker.toString(), usernameField.getText(), passwordField.getText())) {
+			if (signUpModel.isDataInserted(firstNameField.getText(), surnameField.getText(), date, usernameField.getText(), passwordField.getText())) {
 				errorLbl.setText("Inserted.");
 			} else {
 				errorLbl.setStyle("-fx-text-fill: #eb0404");
