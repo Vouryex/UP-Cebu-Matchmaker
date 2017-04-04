@@ -30,10 +30,10 @@ public class LoginController implements Initializable {
 		
 	}
 	
-	public void Login(ActionEvent event) {
+	public void login(ActionEvent event) {
 		try {
 			if (loginModel.isLogin(usernameField.getText(), passwordField.getText())) {
-				
+				//errorLbl.setText("Match.");   // testing purposes
 			} else {
 				errorLbl.setStyle("-fx-text-fill: #eb0404");
 				errorLbl.setText("Invalid credentials.");
@@ -45,7 +45,7 @@ public class LoginController implements Initializable {
 		}
 	}
 	
-	public void SignUp(ActionEvent event) throws IOException {
+	public void signUp(ActionEvent event) throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("/view/SignUp.fxml"));
 		Stage stage = (Stage) signUpLink.getScene().getWindow();
 		stage.setTitle("Sign Up");

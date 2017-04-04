@@ -10,15 +10,15 @@
 
 <AnchorPane prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SignUpController">
    <children>
-      <TextField layoutX="186.0" layoutY="309.0" prefHeight="25.0" prefWidth="229.0" promptText="Username" />
-      <Button layoutX="186.0" layoutY="385.0" mnemonicParsing="false" text="Sign Up" />
-      <TextField layoutX="186.0" layoutY="124.0" prefHeight="25.0" prefWidth="229.0" promptText="First Name" />
-      <TextField layoutX="186.0" layoutY="157.0" prefHeight="25.0" prefWidth="229.0" promptText="Surname" />
-      <PasswordField layoutX="186.0" layoutY="343.0" prefHeight="25.0" prefWidth="229.0" promptText="Password" />
+      <TextField fx:id="usernameField" layoutX="186.0" layoutY="309.0" prefHeight="25.0" prefWidth="229.0" promptText="Username" />
+      <Button layoutX="186.0" layoutY="385.0" mnemonicParsing="false" onAction="#signUp" text="Sign Up" />
+      <TextField fx:id="firstNameField" layoutX="186.0" layoutY="124.0" prefHeight="25.0" prefWidth="229.0" promptText="First Name" />
+      <TextField fx:id="surnameField" layoutX="186.0" layoutY="157.0" prefHeight="25.0" prefWidth="229.0" promptText="Surname" />
+      <PasswordField fx:id="passwordField" layoutX="186.0" layoutY="343.0" prefHeight="25.0" prefWidth="229.0" promptText="Password" />
       <ChoiceBox layoutX="186.0" layoutY="273.0" prefHeight="25.0" prefWidth="229.0" />
       <Label fx:id="errorLbl" layoutX="54.0" layoutY="313.0" prefHeight="17.0" prefWidth="124.0" />
       <Label layoutX="186.0" layoutY="191.0" prefHeight="17.0" prefWidth="149.0" text="Birthdate:" />
       <Label layoutX="185.0" layoutY="250.0" text="Nationality:" />
-      <DatePicker layoutX="186.0" layoutY="217.0" prefHeight="25.0" prefWidth="229.0" />
+      <DatePicker fx:id="birthdatePicker" layoutX="186.0" layoutY="217.0" prefHeight="25.0" prefWidth="229.0" />
    </children>
 </AnchorPane>
