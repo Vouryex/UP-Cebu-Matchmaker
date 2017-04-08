@@ -1,23 +1,82 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SignUpController">
    <children>
-      <TextField fx:id="usernameField" layoutX="186.0" layoutY="250.0" prefHeight="25.0" prefWidth="229.0" promptText="Username" />
-      <Button layoutX="186.0" layoutY="385.0" mnemonicParsing="false" onAction="#signUp" text="Sign Up" />
-      <TextField fx:id="firstNameField" layoutX="186.0" layoutY="124.0" prefHeight="25.0" prefWidth="229.0" promptText="First Name" />
-      <TextField fx:id="surnameField" layoutX="186.0" layoutY="157.0" prefHeight="25.0" prefWidth="229.0" promptText="Surname" />
-      <PasswordField fx:id="passwordField" layoutX="186.0" layoutY="288.0" prefHeight="25.0" prefWidth="229.0" promptText="Password" />
-      <Label fx:id="errorLbl" layoutX="56.0" layoutY="254.0" prefHeight="17.0" prefWidth="124.0" />
-      <Label layoutX="186.0" layoutY="191.0" prefHeight="17.0" prefWidth="149.0" text="Birthdate:" />
-      <DatePicker fx:id="birthdatePicker" layoutX="186.0" layoutY="217.0" prefHeight="25.0" prefWidth="229.0" />
-      <PasswordField fx:id="passwordField1" layoutX="186.0" layoutY="322.0" prefHeight="25.0" prefWidth="229.0" promptText="Retype Password" />
-      <Label fx:id="errorLbl1" layoutX="49.0" layoutY="326.0" prefHeight="17.0" prefWidth="131.0" />
+      <TabPane layoutX="43.0" layoutY="23.0" prefHeight="499.0" prefWidth="528.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Basic Information">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="422.0" prefWidth="528.0">
+                     <children>
+                        <TextField fx:id="firstNameField" layoutX="138.0" layoutY="64.0" prefHeight="25.0" prefWidth="229.0" promptText="First Name" />
+                        <TextField fx:id="surnameField" layoutX="138.0" layoutY="97.0" prefHeight="25.0" prefWidth="229.0" promptText="Surname" />
+                        <PasswordField fx:id="passwordField" layoutX="138.0" layoutY="281.0" prefHeight="25.0" prefWidth="229.0" promptText="Password" />
+                        <Label fx:id="errorLbl" layoutX="14.0" layoutY="251.0" prefHeight="17.0" prefWidth="124.0" />
+                        <Label layoutX="138.0" layoutY="218.0" prefHeight="17.0" prefWidth="149.0" text="Birthdate:" />
+                        <DatePicker fx:id="birthdatePicker" layoutX="138.0" layoutY="247.0" prefHeight="25.0" prefWidth="229.0" />
+                        <PasswordField fx:id="passwordField1" layoutX="138.0" layoutY="322.0" prefHeight="25.0" prefWidth="229.0" promptText="Retype Password" />
+                        <Label fx:id="errorLbl1" layoutX="21.0" layoutY="150.0" prefHeight="17.0" prefWidth="131.0" />
+                        <TextField fx:id="usernameField" layoutX="138.0" layoutY="134.0" prefHeight="25.0" prefWidth="229.0" promptText="Username" />
+                        <Label layoutX="138.0" layoutY="172.0" text="Gender:" />
+                        <RadioButton fx:id="maleRBtn" layoutX="135.0" layoutY="195.0" mnemonicParsing="false" selected="true" text="Male">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="gender" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="femaleRBtn" layoutX="264.0" layoutY="195.0" mnemonicParsing="false" text="Female">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="gender" />
+                           </toggleGroup>
+                        </RadioButton>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="About You">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="189.0" layoutY="36.0" text="About You">
+                           <font>
+                              <Font name="Trebuchet MS" size="24.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="182.0" layoutY="302.0" text="Are you a drinker?" />
+                        <ComboBox fx:id="ppCombox" layoutX="181.0" layoutY="115.0" prefWidth="150.0" />
+                        <Label layoutX="184.0" layoutY="157.0" text="Height:" />
+                        <ComboBox fx:id="heightCombox" layoutX="181.0" layoutY="181.0" prefWidth="150.0" />
+                        <Label layoutX="183.0" layoutY="227.0" text="Body Type:" />
+                        <ComboBox fx:id="btCombox" layoutX="180.0" layoutY="255.0" prefWidth="150.0" />
+                        <Label layoutX="181.0" layoutY="90.0" text="Political Party:" />
+                        <RadioButton fx:id="yesRBtn" layoutX="184.0" layoutY="335.0" mnemonicParsing="false" selected="true" text="Yes">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="drinker" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="noRBtn" layoutX="260.0" layoutY="335.0" mnemonicParsing="false" text="No">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="drinker" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <Button fx:id="signUpBtn" layoutX="215.0" layoutY="379.0" mnemonicParsing="false" onAction="#signUp" text="Sign Up" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
    </children>
 </AnchorPane>

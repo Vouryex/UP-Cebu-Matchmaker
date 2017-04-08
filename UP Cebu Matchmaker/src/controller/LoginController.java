@@ -33,6 +33,7 @@ public class LoginController implements Initializable {
 	public void login(ActionEvent event) {
 		try {
 			if (loginModel.isLogin(usernameField.getText(), passwordField.getText())) {
+				errorLbl.setStyle("-fx-text-fill: black");
 				errorLbl.setText("Match.");   // testing purposes
 			} else {
 				errorLbl.setStyle("-fx-text-fill: #eb0404");
