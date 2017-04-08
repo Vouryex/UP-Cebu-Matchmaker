@@ -85,12 +85,13 @@ public class SignUpController implements Initializable {
 			}
 			
 			if (passwordField.getText().equals(passwordField1.getText())) {
+				errorLbl1.setText("");
 				if (signUpModel.isDataInserted(userData)) {
 					errorLbl.setStyle("-fx-text-fill: black");
 					errorLbl.setText("Inserted.");
 				} else {
 					errorLbl.setStyle("-fx-text-fill: #eb0404");
-					errorLbl.setText("Invalid credentials.");
+					errorLbl.setText("Username already exists.");
 				}
 			} else {
 				errorLbl1.setStyle("-fx-text-fill: #eb0404");
@@ -98,9 +99,8 @@ public class SignUpController implements Initializable {
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			errorLbl.setText("Invalid credentials");
+			errorLbl.setText("Username already exists.");
 			e.printStackTrace();
-		}
 		
 		//Parent root = FXMLLoader.load(getClass().getResource("/view/AboutYou.fxml"));
 		//Stage stage = (Stage) signUpBtn.getScene().getWindow();
@@ -109,5 +109,6 @@ public class SignUpController implements Initializable {
 		//scene.getStylesheets().add("/theme/pastel.css");
 		//stage.setScene(scene);
 		//stage.show();
+		}
 	}
 }

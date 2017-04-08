@@ -21,22 +21,22 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="422.0" prefWidth="528.0">
                      <children>
-                        <TextField fx:id="firstNameField" layoutX="138.0" layoutY="64.0" prefHeight="25.0" prefWidth="229.0" promptText="First Name" />
-                        <TextField fx:id="surnameField" layoutX="138.0" layoutY="97.0" prefHeight="25.0" prefWidth="229.0" promptText="Surname" />
-                        <PasswordField fx:id="passwordField" layoutX="138.0" layoutY="281.0" prefHeight="25.0" prefWidth="229.0" promptText="Password" />
-                        <Label fx:id="errorLbl" layoutX="14.0" layoutY="251.0" prefHeight="17.0" prefWidth="124.0" />
-                        <Label layoutX="138.0" layoutY="218.0" prefHeight="17.0" prefWidth="149.0" text="Birthdate:" />
-                        <DatePicker fx:id="birthdatePicker" layoutX="138.0" layoutY="247.0" prefHeight="25.0" prefWidth="229.0" />
-                        <PasswordField fx:id="passwordField1" layoutX="138.0" layoutY="322.0" prefHeight="25.0" prefWidth="229.0" promptText="Retype Password" />
-                        <Label fx:id="errorLbl1" layoutX="21.0" layoutY="150.0" prefHeight="17.0" prefWidth="131.0" />
-                        <TextField fx:id="usernameField" layoutX="138.0" layoutY="134.0" prefHeight="25.0" prefWidth="229.0" promptText="Username" />
-                        <Label layoutX="138.0" layoutY="172.0" text="Gender:" />
-                        <RadioButton fx:id="maleRBtn" layoutX="135.0" layoutY="195.0" mnemonicParsing="false" selected="true" text="Male">
+                        <TextField fx:id="firstNameField" layoutX="150.0" layoutY="63.0" prefHeight="25.0" prefWidth="229.0" promptText="First Name" />
+                        <TextField fx:id="surnameField" layoutX="150.0" layoutY="97.0" prefHeight="25.0" prefWidth="229.0" promptText="Surname" />
+                        <PasswordField fx:id="passwordField" layoutX="150.0" layoutY="296.0" prefHeight="25.0" prefWidth="229.0" promptText="Password" />
+                        <Label fx:id="errorLbl" layoutX="150.0" layoutY="231.0" prefHeight="18.0" prefWidth="176.0" />
+                        <Label layoutX="150.0" layoutY="178.0" prefHeight="17.0" prefWidth="149.0" text="Birthdate:" />
+                        <DatePicker fx:id="birthdatePicker" layoutX="150.0" layoutY="201.0" prefHeight="25.0" prefWidth="229.0" />
+                        <PasswordField fx:id="passwordField1" layoutX="150.0" layoutY="335.0" prefHeight="25.0" prefWidth="229.0" promptText="Retype Password" />
+                        <Label fx:id="errorLbl1" layoutX="147.0" layoutY="367.0" prefHeight="20.0" prefWidth="183.0" wrapText="true" />
+                        <TextField fx:id="usernameField" layoutX="150.0" layoutY="256.0" prefHeight="25.0" prefWidth="229.0" promptText="Username" />
+                        <Label layoutX="150.0" layoutY="133.0" text="Gender:" />
+                        <RadioButton fx:id="maleRBtn" layoutX="147.0" layoutY="150.0" mnemonicParsing="false" selected="true" text="Male">
                            <toggleGroup>
                               <ToggleGroup fx:id="gender" />
                            </toggleGroup>
                         </RadioButton>
-                        <RadioButton fx:id="femaleRBtn" layoutX="264.0" layoutY="195.0" mnemonicParsing="false" text="Female">
+                        <RadioButton fx:id="femaleRBtn" layoutX="264.0" layoutY="150.0" mnemonicParsing="false" text="Female">
                            <toggleGroup>
                               <ToggleGroup fx:id="gender" />
                            </toggleGroup>
