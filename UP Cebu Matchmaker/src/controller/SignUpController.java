@@ -18,7 +18,9 @@ public class SignUpController {
 	@FXML private DatePicker birthdatePicker;
 	@FXML private TextField usernameField;
 	@FXML private PasswordField passwordField;
+	@FXML private PasswordField passwordField1;
 	@FXML private Label errorLbl;
+	@FXML private Label errorLbl1;
 	
 	public void signUp(ActionEvent event) {
 		try {
@@ -28,11 +30,17 @@ public class SignUpController {
 			System.out.println(date);
 			System.out.println(usernameField.getText());
 			System.out.println(passwordField.getText());
-			if (signUpModel.isDataInserted(firstNameField.getText(), surnameField.getText(), date, usernameField.getText(), passwordField.getText())) {
-				errorLbl.setText("Inserted.");
+			if (passwordField.getText().equals(passwordField1.getText())) {
+				if (signUpModel.isDataInserted(firstNameField.getText(), surnameField.getText(), date, usernameField.getText(), passwordField.getText())) {
+					errorLbl.setStyle("-fx-text-fill: black");
+					errorLbl.setText("Inserted.");
+				} else {
+					errorLbl.setStyle("-fx-text-fill: #eb0404");
+					errorLbl.setText("Invalid credentials.");
+				}
 			} else {
-				errorLbl.setStyle("-fx-text-fill: #eb0404");
-				errorLbl.setText("Invalid credentials.");
+				errorLbl1.setStyle("-fx-text-fill: #eb0404");
+				errorLbl1.setText("Passwords do not match.");
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
