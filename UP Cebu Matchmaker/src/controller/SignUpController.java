@@ -30,6 +30,7 @@ public class SignUpController implements Initializable {
 	@FXML private TextField surnameField;
 	@FXML private RadioButton maleRBtn;
 	@FXML private RadioButton femaleRBtn;
+	@FXML private ToggleGroup gender;
 	@FXML private DatePicker birthdatePicker;
 	@FXML private TextField usernameField;
 	@FXML private PasswordField passwordField;
@@ -38,7 +39,7 @@ public class SignUpController implements Initializable {
 	@FXML private Label errorLbl1;
 	@FXML private Button signUpBtn;
 	
-	private ToggleGroup drinker;
+	@FXML private ToggleGroup drinker;
 	@FXML private ComboBox<String> ppCombox;
 	@FXML private ComboBox<String> heightCombox;
 	@FXML private ComboBox<String> btCombox;
@@ -51,6 +52,10 @@ public class SignUpController implements Initializable {
 		ppCombox.getItems().addAll("UPS", "NKE", "None");
 		heightCombox.getItems().addAll("4 ft.", "5 ft.", "6 ft.");  // not final
 		btCombox.getItems().addAll("Skinny", "Average", "Stocky");
+		maleRBtn.setToggleGroup(gender);
+		femaleRBtn.setToggleGroup(gender);
+		yesRBtn.setToggleGroup(drinker);
+		noRBtn.setToggleGroup(drinker);
 	}
 	public void signUp(ActionEvent event) throws IOException {
 		try {
