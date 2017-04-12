@@ -106,14 +106,14 @@ public class SignUpController implements Initializable {
 			// TODO Auto-generated catch block
 			errorLbl.setText("Username already exists.");
 			e.printStackTrace();
-		
-		//Parent root = FXMLLoader.load(getClass().getResource("/view/AboutYou.fxml"));
-		//Stage stage = (Stage) signUpBtn.getScene().getWindow();
-		//stage.setTitle("Sign Up");
-		//Scene scene = new Scene(root);
-		//scene.getStylesheets().add("/theme/pastel.css");
-		//stage.setScene(scene);
-		//stage.show();
 		}
+		
+		Parent root = FXMLLoader.load(getClass().getResource("/view/profile/CreateProfile.fxml"));
+		Stage stage = (Stage) signUpBtn.getScene().getWindow();
+		stage.setTitle("Create Your Profile");
+		Scene scene = new Scene(root);
+		scene.getStylesheets().add("/theme/pastel.css");
+		stage.setScene(scene);
+		stage.show();
 	}
 }

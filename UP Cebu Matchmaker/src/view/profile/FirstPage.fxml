@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="280.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.createprofile.FirstPageController">
+   <children>
+      <Label layoutX="26.0" layoutY="13.0" text="Tell us about your match" />
+      <ComboBox fx:id="genderCombox" layoutX="27.0" layoutY="75.0" prefWidth="150.0" />
+      <Label layoutX="26.0" layoutY="51.0" text="I am seeking a" />
+      <Label layoutX="200.0" layoutY="79.0" text="age" />
+      <ComboBox fx:id="minAgeCombox" layoutX="240.0" layoutY="75.0" prefHeight="25.0" prefWidth="58.0" />
+      <Label layoutX="319.0" layoutY="79.0" text="to" />
+      <ComboBox fx:id="maxAgeCombox" layoutX="351.0" layoutY="75.0" prefHeight="25.0" prefWidth="58.0" />
+      <Label fx:id="heightQuestion" layoutX="27.0" layoutY="120.0" text="How tall is she?" />
+      <ComboBox fx:id="minHeightCombox" layoutX="27.0" layoutY="146.0" prefHeight="17.0" prefWidth="121.0" />
+      <Label layoutX="163.0" layoutY="150.0" text="to" />
+      <ComboBox fx:id="maxHeightCombox" layoutX="183.0" layoutY="146.0" prefHeight="17.0" prefWidth="121.0" />
+      <Label layoutX="26.0" layoutY="195.0" text="What is her body type?" />
+      <CheckBox fx:id="noPreference" layoutX="28.0" layoutY="221.0" mnemonicParsing="false" text="No preference" />
+      <CheckBox fx:id="average" layoutX="168.0" layoutY="221.0" mnemonicParsing="false" text="Average" />
+      <CheckBox fx:id="skinny" layoutX="168.0" layoutY="247.0" mnemonicParsing="false" text="Skinny" />
+      <CheckBox fx:id="stocky" layoutX="276.0" layoutY="221.0" mnemonicParsing="false" text="Stocky" />
+      <CheckBox fx:id="heavyset" layoutX="276.0" layoutY="247.0" mnemonicParsing="false" text="Heavyset" />
+      <CheckBox fx:id="fullFigured" layoutX="380.0" layoutY="221.0" mnemonicParsing="false" text="Full-figured" />
+      <CheckBox fx:id="athletic" layoutX="381.0" layoutY="247.0" mnemonicParsing="false" text="Athletic" />
+      <Hyperlink fx:id="moreBodyType" layoutX="528.0" layoutY="244.0" text="MORE&gt;&gt;" />
+   </children>
+</AnchorPane>

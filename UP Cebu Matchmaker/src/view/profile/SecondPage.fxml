@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="280.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.createprofile.SecondPageController">
+   <children>
+      <Label layoutX="26.0" layoutY="13.0" text="Tell us about yourself" />
+      <Label layoutX="26.0" layoutY="43.0" text="What type of sports or excercises do you like?" />
+      <Label layoutX="27.0" layoutY="119.0" text="Have a hobby? Pick some you like to do." />
+      <CheckBox fx:id="noAnswerHobbies" layoutX="26.0" layoutY="145.0" mnemonicParsing="false" text="No answer" />
+      <CheckBox fx:id="camping" layoutX="120.0" layoutY="145.0" mnemonicParsing="false" text="Camping" />
+      <CheckBox fx:id="coffee" layoutX="210.0" layoutY="145.0" mnemonicParsing="false" text="Coffee and conversation" />
+      <CheckBox fx:id="cooking" layoutX="374.0" layoutY="145.0" mnemonicParsing="false" text="Cooking" />
+      <CheckBox fx:id="diningOut" layoutX="120.0" layoutY="169.0" mnemonicParsing="false" text="Dining out" />
+      <Label layoutX="26.0" layoutY="196.0" text="Do you like pets? What pets do you like?" />
+      <CheckBox fx:id="noPreference" layoutX="26.0" layoutY="222.0" mnemonicParsing="false" text="No preference" />
+      <CheckBox fx:id="cats" layoutX="147.0" layoutY="222.0" mnemonicParsing="false" text="Cats" />
+      <CheckBox fx:id="dogs" layoutX="210.0" layoutY="222.0" mnemonicParsing="false" text="Dogs" />
+      <CheckBox fx:id="exotic" layoutX="281.0" layoutY="222.0" mnemonicParsing="false" text="Exotic Pets" />
+      <CheckBox fx:id="fish" layoutX="147.0" layoutY="250.0" mnemonicParsing="false" text="Fish" />
+      <CheckBox fx:id="horses" layoutX="210.0" layoutY="250.0" mnemonicParsing="false" text="Horses" />
+      <CheckBox fx:id="other" layoutX="281.0" layoutY="250.0" mnemonicParsing="false" text="Other" />
+      <CheckBox fx:id="noAnswerSports" layoutX="26.0" layoutY="70.0" mnemonicParsing="false" text="No answer" />
+      <CheckBox fx:id="aerobics" layoutX="121.0" layoutY="70.0" mnemonicParsing="false" text="Aerobics" />
+      <CheckBox fx:id="autoracing" layoutX="208.0" layoutY="70.0" mnemonicParsing="false" text="Auto racing / Motrocross" />
+      <CheckBox fx:id="baseball" layoutX="383.0" layoutY="70.0" mnemonicParsing="false" text="Baseball" />
+      <CheckBox fx:id="basketball" layoutX="121.0" layoutY="95.0" mnemonicParsing="false" text="Basketball" />
+      <CheckBox fx:id="billiards" layoutX="210.0" layoutY="95.0" mnemonicParsing="false" text="Billiards / Pool" />
+      <CheckBox fx:id="bowling" layoutX="326.0" layoutY="95.0" mnemonicParsing="false" text="Bowling" />
+      <Hyperlink fx:id="moreSports" layoutX="530.0" layoutY="92.0" text="MORE&gt;&gt;" />
+      <CheckBox fx:id="cycling" layoutX="407.0" layoutY="95.0" mnemonicParsing="false" text="Cycling" />
+      <CheckBox fx:id="gardening" layoutX="210.0" layoutY="169.0" mnemonicParsing="false" text="Gardening" />
+      <CheckBox fx:id="movies" layoutX="300.0" layoutY="169.0" mnemonicParsing="false" text="Movies/Videos" />
+      <Hyperlink fx:id="moreHobbies" layoutX="530.0" layoutY="166.0" text="MORE&gt;&gt;" />
+   </children>
+</AnchorPane>
