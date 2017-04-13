@@ -21,4 +21,12 @@ public class PageManager {
 			return "";
 		}
 	}
+	
+	public static int minPage() {
+		return 1;
+	}
+	
+	public static int maxPage() {
+		return 4;
+	}
 }

@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import controller.ProfilePageController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -26,7 +27,7 @@ public class CreateProfileController implements Initializable {
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1)  {
 		Pane firstPage = null;
-		currPageNum = 1;
+		currPageNum = PageManager.minPage();
 		try {
 			firstPage = FXMLLoader.load(getClass().getResource(PageManager.getPage(currPageNum)));
 		} catch (IOException e) {
@@ -38,16 +39,45 @@ public class CreateProfileController implements Initializable {
 	}
 	
 	public void back() throws IOException {
-		currPageNum--;
-		questionArea.getChildren().clear();
-		Pane page = FXMLLoader.load(getClass().getResource(PageManager.getPage(currPageNum)));
-		questionArea.getChildren().add(page);
+		if(currPageNum == PageManager.minPage()) {
+			// code will not reach here.
+		} else {
+			currPageNum--;
+			questionArea.getChildren().clear();
+			Pane page = FXMLLoader.load(getClass().getResource(PageManager.getPage(currPageNum)));
+			questionArea.getChildren().add(page);
+			nextArrow.setDisable(false);
+			
+			if(currPageNum == PageManager.minPage()) {
+				backArrow.setDisable(true);
+			}
+		}
+
 	}
 	
 	public void next() throws IOException {
-		currPageNum++;
-		questionArea.getChildren().clear();
-		Pane page = FXMLLoader.load(getClass().getResource(PageManager.getPage(currPageNum)));
-		questionArea.getChildren().add(page);
+		if(currPageNum == PageManager.maxPage()) {
+			profilePageScene();
+		} else {
+			currPageNum++;
+			questionArea.getChildren().clear();
+			Pane page = FXMLLoader.load(getClass().getResource(PageManager.getPage(currPageNum)));
+			questionArea.getChildren().add(page);
+			backArrow.setDisable(false);
+		}
+
+	}
+	
+	private void profilePageScene() throws IOException {
+		FXMLLoader loader = new FXMLLoader();
+		Parent root = loader.load(getClass().getResource("/view/ProfilePage.fxml").openStream());
+		ProfilePageController profilePageController = (ProfilePageController) loader.getController();
+		//profilePageController.setUser(usernameField.getText());
+		Stage stage = (Stage) questionArea.getScene().getWindow();
+		stage.setTitle("Profile");
+		Scene scene = new Scene(root);
+		scene.getStylesheets().add("/theme/pastel.css");
+		stage.setScene(scene);
+		stage.show();
 	}
 }
