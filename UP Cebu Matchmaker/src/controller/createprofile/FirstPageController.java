@@ -33,11 +33,13 @@ public class FirstPageController implements Initializable {
 		
 		genderCombox.getItems().addAll("Man", "Woman");
 		ArrayList ageList = new ArrayList<String>();
+		ArrayList heightList = new ArrayList<String>();
 		addAges(ageList);
+		addHeights(heightList);
 		minAgeCombox.getItems().addAll(ageList);
 		maxAgeCombox.getItems().addAll(ageList);
-		minHeightCombox.getItems().addAll("4ft.", "5ft.", "6ft.");
-		maxHeightCombox.getItems().addAll("4ft.", "5ft.", "6ft.");	
+		minHeightCombox.getItems().addAll(heightList);
+		maxHeightCombox.getItems().addAll(heightList);
 	}
 	
 	private void addAges(ArrayList<String> ageList) {
@@ -46,5 +48,11 @@ public class FirstPageController implements Initializable {
 			ageList.add(String.valueOf(age));
 		}
 	}
-
+	
+	public void addHeights(ArrayList<String> heightList) {
+		int height = 100;
+		for(; height < 221; height++) {
+			heightList.add(String.valueOf(height));
+		}
+	}
 }

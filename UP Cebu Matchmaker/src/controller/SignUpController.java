@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
@@ -49,8 +50,10 @@ public class SignUpController implements Initializable {
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
+		ArrayList heightList = new ArrayList<String>();
+		addHeights(heightList);
 		ppCombox.getItems().addAll("UPS", "NKE", "None");
-		heightCombox.getItems().addAll("4 ft.", "5 ft.", "6 ft.");  // not final
+		heightCombox.getItems().addAll(heightList);  // not final
 		btCombox.getItems().addAll("Skinny", "Average", "Stocky");
 		maleRBtn.setToggleGroup(gender);
 		femaleRBtn.setToggleGroup(gender);
@@ -115,5 +118,12 @@ public class SignUpController implements Initializable {
 		scene.getStylesheets().add("/theme/pastel.css");
 		stage.setScene(scene);
 		stage.show();
+	}
+	
+	public void addHeights(ArrayList<String> heightList) {
+		int height = 100;
+		for(; height < 221; height++) {
+			heightList.add(String.valueOf(height));
+		}
 	}
 }
