@@ -35,7 +35,10 @@ public class LoginController implements Initializable {
 			if (loginModel.isLogin(usernameField.getText(), passwordField.getText())) {
 				errorLbl.setStyle("-fx-text-fill: black");
 				errorLbl.setText("Match.");   // testing purposes
-				Parent root = FXMLLoader.load(getClass().getResource("/view/ProfilePage.fxml"));
+				FXMLLoader loader = new FXMLLoader();
+				Parent root = loader.load(getClass().getResource("/view/ProfilePage.fxml").openStream());
+				ProfilePageController profilePageController = (ProfilePageController) loader.getController();
+				profilePageController.setUser(usernameField.getText());
 				Stage stage = (Stage) signUpLink.getScene().getWindow();
 				stage.setTitle("Profile");
 				Scene scene = new Scene(root);
