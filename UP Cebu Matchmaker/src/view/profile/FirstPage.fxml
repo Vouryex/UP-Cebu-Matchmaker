@@ -15,7 +15,7 @@
       <ComboBox fx:id="minAgeCombox" layoutX="240.0" layoutY="75.0" prefHeight="25.0" prefWidth="58.0" />
       <Label layoutX="319.0" layoutY="79.0" text="to" />
       <ComboBox fx:id="maxAgeCombox" layoutX="351.0" layoutY="75.0" prefHeight="25.0" prefWidth="58.0" />
-      <Label fx:id="heightQuestion" layoutX="27.0" layoutY="120.0" text="How tall is she?" />
+      <Label fx:id="heightQuestion" layoutX="27.0" layoutY="120.0" text="How tall is he/she?" />
       <ComboBox fx:id="minHeightCombox" layoutX="27.0" layoutY="146.0" prefHeight="17.0" prefWidth="121.0" />
       <Label layoutX="163.0" layoutY="150.0" text="to" />
       <ComboBox fx:id="maxHeightCombox" layoutX="183.0" layoutY="146.0" prefHeight="17.0" prefWidth="121.0" />
