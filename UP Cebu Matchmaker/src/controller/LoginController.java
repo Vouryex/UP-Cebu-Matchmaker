@@ -35,6 +35,13 @@ public class LoginController implements Initializable {
 			if (loginModel.isLogin(usernameField.getText(), passwordField.getText())) {
 				errorLbl.setStyle("-fx-text-fill: black");
 				errorLbl.setText("Match.");   // testing purposes
+				Parent root = FXMLLoader.load(getClass().getResource("/view/ProfilePage.fxml"));
+				Stage stage = (Stage) signUpLink.getScene().getWindow();
+				stage.setTitle("Profile");
+				Scene scene = new Scene(root);
+				scene.getStylesheets().add("/theme/pastel.css");
+				stage.setScene(scene);
+				stage.show();
 			} else {
 				errorLbl.setStyle("-fx-text-fill: #eb0404");
 				errorLbl.setText("Invalid credentials.");
@@ -42,6 +49,9 @@ public class LoginController implements Initializable {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			errorLbl.setText("Invalid credentials");
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
