@@ -7,12 +7,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="500.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.111" fx:controller="controller.MatchesPageController">
+<AnchorPane prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MatchesPageController">
    <children>
-      <Label layoutX="142.0" layoutY="29.0" text="Your Top 4 Matches">
+      <Label layoutX="177.0" layoutY="25.0" text="Your Top 4 Matches">
          <font>
-            <Font name="Trebuchet MS" size="36.0" />
+            <Font name="Trebuchet MS" size="28.0" />
          </font>
       </Label>
       <ImageView fx:id="match1Img" fitHeight="150.0" fitWidth="200.0" layoutX="42.0" layoutY="108.0" pickOnBounds="true" preserveRatio="true" />
