@@ -22,6 +22,7 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.stage.Stage;
+import main.DataMethod;
 import main.UserData;
 import model.SignUpModel;
 
@@ -32,7 +33,7 @@ public class SignUpController implements Initializable {
 	@FXML private RadioButton maleRBtn;
 	@FXML private RadioButton femaleRBtn;
 	@FXML private ToggleGroup gender;
-	@FXML private DatePicker birthdatePicker;
+	@FXML private ComboBox<String> ageCombox;
 	@FXML private TextField usernameField;
 	@FXML private PasswordField passwordField;
 	@FXML private PasswordField passwordField1;
@@ -51,7 +52,10 @@ public class SignUpController implements Initializable {
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
 		ArrayList heightList = new ArrayList<String>();
-		addHeights(heightList);
+		DataMethod.addHeights(heightList);
+		ArrayList ageList = new ArrayList<String>();
+		DataMethod.addAges(ageList);
+		ageCombox.getItems().addAll(ageList);
 		ppCombox.getItems().addAll("UPS", "NKE", "None");
 		heightCombox.getItems().addAll(heightList);  // not final
 		btCombox.getItems().addAll("Skinny", "Average", "Stocky");
@@ -66,10 +70,9 @@ public class SignUpController implements Initializable {
 			String height = heightCombox.getValue();
 			String bodyType = btCombox.getValue();
 			UserData userData = new UserData();
-			String date = birthdatePicker.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
 			System.out.println(firstNameField.getText());
 			System.out.println(surnameField.getText());
-			System.out.println(date);
+			System.out.println(ageCombox.getValue());
 			System.out.println(usernameField.getText());
 			System.out.println(passwordField.getText());
 			
@@ -80,7 +83,7 @@ public class SignUpController implements Initializable {
 			} else {
 				userData.setGender(femaleRBtn.getText());
 			}
-			userData.setBirthdate(date);
+			userData.setAge(ageCombox.getValue());
 			userData.setUsername(usernameField.getText());
 			userData.setPassword(passwordField.getText());
 			userData.setPoliticalParty(pp);
@@ -118,12 +121,5 @@ public class SignUpController implements Initializable {
 		scene.getStylesheets().add("/theme/pastel.css");
 		stage.setScene(scene);
 		stage.show();
-	}
-	
-	public void addHeights(ArrayList<String> heightList) {
-		int height = 100;
-		for(; height < 221; height++) {
-			heightList.add(String.valueOf(height));
-		}
 	}
 }

@@ -10,6 +10,7 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
+import main.DataMethod;
 
 public class FirstPageController implements Initializable {
 
@@ -34,25 +35,11 @@ public class FirstPageController implements Initializable {
 		genderCombox.getItems().addAll("Man", "Woman");
 		ArrayList ageList = new ArrayList<String>();
 		ArrayList heightList = new ArrayList<String>();
-		addAges(ageList);
-		addHeights(heightList);
+		DataMethod.addAges(ageList);
+		DataMethod.addHeights(heightList);
 		minAgeCombox.getItems().addAll(ageList);
 		maxAgeCombox.getItems().addAll(ageList);
 		minHeightCombox.getItems().addAll(heightList);
 		maxHeightCombox.getItems().addAll(heightList);
-	}
-	
-	private void addAges(ArrayList<String> ageList) {
-		int age = 13;
-		for(; age < 60; age++) {
-			ageList.add(String.valueOf(age));
-		}
-	}
-	
-	public void addHeights(ArrayList<String> heightList) {
-		int height = 100;
-		for(; height < 221; height++) {
-			heightList.add(String.valueOf(height));
-		}
 	}
 }

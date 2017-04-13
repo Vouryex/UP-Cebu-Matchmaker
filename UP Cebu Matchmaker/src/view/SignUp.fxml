@@ -2,7 +2,6 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.RadioButton?>
@@ -25,8 +24,7 @@
                         <TextField fx:id="surnameField" layoutX="150.0" layoutY="97.0" prefHeight="25.0" prefWidth="229.0" promptText="Surname" />
                         <PasswordField fx:id="passwordField" layoutX="150.0" layoutY="296.0" prefHeight="25.0" prefWidth="229.0" promptText="Password" />
                         <Label fx:id="errorLbl" layoutX="150.0" layoutY="231.0" prefHeight="18.0" prefWidth="176.0" />
-                        <Label layoutX="150.0" layoutY="178.0" prefHeight="17.0" prefWidth="149.0" text="Birthdate:" />
-                        <DatePicker fx:id="birthdatePicker" layoutX="150.0" layoutY="201.0" prefHeight="25.0" prefWidth="229.0" />
+                        <Label layoutX="150.0" layoutY="178.0" prefHeight="17.0" prefWidth="149.0" text="Age:" />
                         <PasswordField fx:id="passwordField1" layoutX="150.0" layoutY="335.0" prefHeight="25.0" prefWidth="229.0" promptText="Retype Password" />
                         <Label fx:id="errorLbl1" layoutX="147.0" layoutY="367.0" prefHeight="20.0" prefWidth="183.0" wrapText="true" />
                         <TextField fx:id="usernameField" layoutX="150.0" layoutY="256.0" prefHeight="25.0" prefWidth="229.0" promptText="Username" />
@@ -41,6 +39,7 @@
                               <ToggleGroup fx:id="gender" />
                            </toggleGroup>
                         </RadioButton>
+                        <ComboBox fx:id="ageCombox" layoutX="150.0" layoutY="206.0" prefHeight="25.0" prefWidth="227.0" />
                      </children>
                   </AnchorPane>
             </content>

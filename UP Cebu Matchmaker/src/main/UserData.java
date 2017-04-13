@@ -3,7 +3,7 @@ package main;
 public class UserData {
 	private String firstname;
 	private String surname;
-	private String birthdate;
+	private String age;
 	private String username;
 	private String password;
 	private String gender;
@@ -32,12 +32,12 @@ public class UserData {
 		this.surname = surname;
 	}
 
-	public String getBirthdate() {
-		return birthdate;
+	public String getAge() {
+		return age;
 	}
 
-	public void setBirthdate(String birthdate) {
-		this.birthdate = birthdate;
+	public void setAge(String age) {
+		this.age = age;
 	}
 
 	public String getUsername() {

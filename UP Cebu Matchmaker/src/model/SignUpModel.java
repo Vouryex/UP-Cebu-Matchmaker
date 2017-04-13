@@ -19,12 +19,12 @@ public class SignUpModel {
 	
 	public boolean isDataInserted(UserData u) throws SQLException {
 		PreparedStatement preparedStatement = null;
-		String query = "INSERT INTO user(firstname, surname, birthdate, username, password, gender, political_party, height, body_type, drinker) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		String query = "INSERT INTO user(firstname, surname, age, username, password, gender, political_party, height, body_type, drinker) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		try {
 			preparedStatement = connection.prepareStatement(query);
 			preparedStatement.setString(1, u.getFirstname());
 			preparedStatement.setString(2, u.getSurname());
-			preparedStatement.setString(3, u.getBirthdate());
+			preparedStatement.setString(3, u.getAge());
 			preparedStatement.setString(4, u.getUsername());
 			preparedStatement.setString(5, u.getPassword());
 			preparedStatement.setString(6, u.getGender());
