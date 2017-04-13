@@ -39,4 +39,9 @@ public class ProfilePageController {
 		stage.setScene(scene);
 		stage.show();
 	}
+	
+	public void setUser(String user) {
+		usernameLbl.setText(user);
+		usernameHead.setText(user);
+	}
 }
