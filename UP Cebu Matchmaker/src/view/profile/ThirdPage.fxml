@@ -5,41 +5,40 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane prefHeight="280.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.111" fx:controller="controller.createprofile.ThirdPageController">
+<AnchorPane prefHeight="280.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.createprofile.ThirdPageController">
    <children>
       <Label layoutX="26.0" layoutY="13.0" text="Tell us about yourself" />
       <Label layoutX="26.0" layoutY="43.0" text="What are your favorite music genres?" />
-      <CheckBox fx:id="noAnswerMusic" layoutX="26.0" layoutY="67.0" mnemonicParsing="false" text="No answer" />
-      <CheckBox fx:id="jazz" layoutX="118.0" layoutY="67.0" mnemonicParsing="false" text="Jazz" />
-      <CheckBox fx:id="blues" layoutX="177.0" layoutY="67.0" mnemonicParsing="false" text="Blues" />
-      <CheckBox fx:id="folk" layoutX="241.0" layoutY="67.0" mnemonicParsing="false" text="Folk" />
-      <CheckBox fx:id="rock" layoutX="300.0" layoutY="67.0" mnemonicParsing="false" text="Rock" />
-      <CheckBox fx:id="hiphop" layoutX="364.0" layoutY="67.0" mnemonicParsing="false" text="Hip hop" />
-      <CheckBox fx:id="rapping" layoutX="448.0" layoutY="67.0" mnemonicParsing="false" text="Rapping" />
-      <CheckBox fx:id="edm" layoutX="118.0" layoutY="96.0" mnemonicParsing="false" text="Electronic dance music" />
-      <CheckBox fx:id="reggae" layoutX="274.0" layoutY="96.0" mnemonicParsing="false" text="Reggae" />
-      <CheckBox fx:id="techno" layoutX="347.0" layoutY="96.0" mnemonicParsing="false" text="Techno" />
-      <CheckBox fx:id="punkRock" layoutX="421.0" layoutY="96.0" mnemonicParsing="false" text="Punk rock" />
-      <CheckBox fx:id="classical" layoutX="118.0" layoutY="124.0" mnemonicParsing="false" text="Classical Period" />
-      <CheckBox fx:id="dubstep" layoutX="238.0" layoutY="124.0" mnemonicParsing="false" text="Dubstep" />
-      <CheckBox fx:id="melody" layoutX="317.0" layoutY="124.0" mnemonicParsing="false" text="Melody" />
-      <CheckBox fx:id="country" layoutX="392.0" layoutY="124.0" mnemonicParsing="false" text="Country" />
+      <CheckBox fx:id="noAnswerMusic" layoutX="26.0" layoutY="67.0" mnemonicParsing="false" onAction="#noMusic" selected="true" text="No answer" />
+      <CheckBox fx:id="jazz" layoutX="118.0" layoutY="67.0" mnemonicParsing="false" onAction="#hasMusic" text="Jazz" />
+      <CheckBox fx:id="blues" layoutX="177.0" layoutY="67.0" mnemonicParsing="false" onAction="#hasMusic" text="Blues" />
+      <CheckBox fx:id="folk" layoutX="241.0" layoutY="67.0" mnemonicParsing="false" onAction="#hasMusic" text="Folk" />
+      <CheckBox fx:id="rock" layoutX="300.0" layoutY="67.0" mnemonicParsing="false" onAction="#hasMusic" text="Rock" />
+      <CheckBox fx:id="hiphop" layoutX="364.0" layoutY="67.0" mnemonicParsing="false" onAction="#hasMusic" text="Hip hop" />
+      <CheckBox fx:id="rapping" layoutX="448.0" layoutY="67.0" mnemonicParsing="false" onAction="#hasMusic" text="Rapping" />
+      <CheckBox fx:id="edm" layoutX="118.0" layoutY="96.0" mnemonicParsing="false" onAction="#hasMusic" text="Electronic dance music" />
+      <CheckBox fx:id="reggae" layoutX="274.0" layoutY="96.0" mnemonicParsing="false" onAction="#hasMusic" text="Reggae" />
+      <CheckBox fx:id="techno" layoutX="347.0" layoutY="96.0" mnemonicParsing="false" onAction="#hasMusic" text="Techno" />
+      <CheckBox fx:id="punkRock" layoutX="421.0" layoutY="96.0" mnemonicParsing="false" onAction="#hasMusic" text="Punk rock" />
+      <CheckBox fx:id="classical" layoutX="118.0" layoutY="124.0" mnemonicParsing="false" onAction="#hasMusic" text="Classical Period" />
+      <CheckBox fx:id="dubstep" layoutX="238.0" layoutY="124.0" mnemonicParsing="false" onAction="#hasMusic" text="Dubstep" />
+      <CheckBox fx:id="melody" layoutX="317.0" layoutY="124.0" mnemonicParsing="false" onAction="#hasMusic" text="Melody" />
+      <CheckBox fx:id="country" layoutX="392.0" layoutY="124.0" mnemonicParsing="false" onAction="#hasMusic" text="Country" />
       <Hyperlink fx:id="moreMusic" layoutX="528.0" layoutY="121.0" text="MORE&gt;&gt;" />
       <Label layoutX="26.0" layoutY="153.0" text="What are your favorite movie genres?" />
-      <CheckBox fx:id="noAnswerMovie" layoutX="26.0" layoutY="179.0" mnemonicParsing="false" text="No answer" />
-      <CheckBox fx:id="action" layoutX="118.0" layoutY="179.0" mnemonicParsing="false" text="Action" />
-      <CheckBox fx:id="adventure" layoutX="190.0" layoutY="179.0" mnemonicParsing="false" text="Adventure" />
-      <CheckBox fx:id="animation" layoutX="281.0" layoutY="179.0" mnemonicParsing="false" text="Animation" />
-      <CheckBox fx:id="biography" layoutX="373.0" layoutY="179.0" mnemonicParsing="false" text="Biography" />
-      <CheckBox fx:id="documentation" layoutX="118.0" layoutY="207.0" mnemonicParsing="false" text="Documentation" />
-      <CheckBox fx:id="drama" layoutX="235.0" layoutY="207.0" mnemonicParsing="false" text="Drama" />
-      <CheckBox fx:id="family" layoutX="309.0" layoutY="207.0" mnemonicParsing="false" text="Family" />
-      <CheckBox fx:id="fantasy" layoutX="391.0" layoutY="207.0" mnemonicParsing="false" text="Fantasy" />
-      <CheckBox fx:id="filmNoir" layoutX="118.0" layoutY="236.0" mnemonicParsing="false" text="Film-Noir" />
-      <CheckBox fx:id="history" layoutX="205.0" layoutY="236.0" mnemonicParsing="false" text="History" />
-      <CheckBox fx:id="horror" layoutX="281.0" layoutY="236.0" mnemonicParsing="false" text="Horror" />
-      <CheckBox fx:id="music" layoutX="356.0" layoutY="236.0" mnemonicParsing="false" text="Music" />
+      <CheckBox fx:id="noAnswerMovie" layoutX="26.0" layoutY="179.0" mnemonicParsing="false" onAction="#noMovie" selected="true" text="No answer" />
+      <CheckBox fx:id="action" layoutX="118.0" layoutY="179.0" mnemonicParsing="false" onAction="#hasMovie" text="Action" />
+      <CheckBox fx:id="adventure" layoutX="190.0" layoutY="179.0" mnemonicParsing="false" onAction="#hasMovie" text="Adventure" />
+      <CheckBox fx:id="animation" layoutX="281.0" layoutY="179.0" mnemonicParsing="false" onAction="#hasMovie" text="Animation" />
+      <CheckBox fx:id="biography" layoutX="373.0" layoutY="179.0" mnemonicParsing="false" onAction="#hasMovie" text="Biography" />
+      <CheckBox fx:id="documentation" layoutX="118.0" layoutY="207.0" mnemonicParsing="false" onAction="#hasMovie" text="Documentation" />
+      <CheckBox fx:id="drama" layoutX="235.0" layoutY="207.0" mnemonicParsing="false" onAction="#hasMovie" text="Drama" />
+      <CheckBox fx:id="family" layoutX="309.0" layoutY="207.0" mnemonicParsing="false" onAction="#hasMovie" text="Family" />
+      <CheckBox fx:id="fantasy" layoutX="391.0" layoutY="207.0" mnemonicParsing="false" onAction="#hasMovie" text="Fantasy" />
+      <CheckBox fx:id="filmNoir" layoutX="118.0" layoutY="236.0" mnemonicParsing="false" onAction="#hasMovie" text="Film-Noir" />
+      <CheckBox fx:id="history" layoutX="205.0" layoutY="236.0" mnemonicParsing="false" onAction="#hasMovie" text="History" />
+      <CheckBox fx:id="horror" layoutX="281.0" layoutY="236.0" mnemonicParsing="false" onAction="#hasMovie" text="Horror" />
+      <CheckBox fx:id="music" layoutX="356.0" layoutY="236.0" mnemonicParsing="false" onAction="#hasMovie" text="Music" />
       <Hyperlink fx:id="moreMovie" layoutX="528.0" layoutY="242.0" text="MORE&gt;&gt;" />
    </children>
 </AnchorPane>

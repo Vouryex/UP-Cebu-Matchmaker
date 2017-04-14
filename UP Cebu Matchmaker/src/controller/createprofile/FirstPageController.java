@@ -28,6 +28,7 @@ public class FirstPageController implements Initializable {
 	@FXML private CheckBox fullFigured;
 	@FXML private CheckBox athletic;
 	@FXML private Hyperlink moreBodyType;
+	private ArrayList<CheckBox> bodyTypes = new ArrayList<CheckBox>();
 		
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -41,5 +42,31 @@ public class FirstPageController implements Initializable {
 		maxAgeCombox.getItems().addAll(ageList);
 		minHeightCombox.getItems().addAll(heightList);
 		maxHeightCombox.getItems().addAll(heightList);
+		initBodyTypes(bodyTypes);
+	}
+	
+	private void initBodyTypes(ArrayList<CheckBox> bodyTypes) {
+		bodyTypes.add(average);
+		bodyTypes.add(skinny);
+		bodyTypes.add(stocky);
+		bodyTypes.add(heavyset);
+		bodyTypes.add(fullFigured);
+		bodyTypes.add(athletic);
+	}
+	
+	@FXML
+	private void noPreferenceClicked() {
+		if(noPreference.isSelected()) {
+			for(CheckBox bodyType : bodyTypes) {
+				bodyType.setSelected(false);
+			}
+		} else {
+			noPreference.setSelected(true);
+		}
+	}
+	
+	@FXML
+	private void hasPreference() {
+		noPreference.setSelected(false);
 	}
 }
