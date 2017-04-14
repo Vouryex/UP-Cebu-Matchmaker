@@ -22,6 +22,6 @@
       <Hyperlink fx:id="match2Link" layoutX="361.0" layoutY="258.0" prefHeight="23.0" prefWidth="181.0" text="Hyperlink" />
       <Hyperlink fx:id="match3Link" layoutX="44.0" layoutY="439.0" prefHeight="23.0" prefWidth="181.0" text="Hyperlink" />
       <Hyperlink fx:id="match4Link" layoutX="361.0" layoutY="439.0" prefHeight="23.0" prefWidth="181.0" text="Hyperlink" />
-      <Button layoutX="42.0" layoutY="29.0" mnemonicParsing="false" onAction="#backBtnClick" text="Back" />
+      <Button fx:id="backBtn" layoutX="42.0" layoutY="29.0" mnemonicParsing="false" onAction="#backBtnClick" text="Back" />
    </children>
 </AnchorPane>

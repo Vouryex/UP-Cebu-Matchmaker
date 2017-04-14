@@ -3,6 +3,7 @@ package controller;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
@@ -35,10 +36,12 @@ public class LoginController implements Initializable {
 			if (loginModel.isLogin(usernameField.getText(), passwordField.getText())) {
 				errorLbl.setStyle("-fx-text-fill: black");
 				errorLbl.setText("Match.");   // testing purposes
+				ArrayList<String> info = new ArrayList<String>();
+				info = loginModel.getInfo(usernameField.getText());
 				FXMLLoader loader = new FXMLLoader();
 				Parent root = loader.load(getClass().getResource("/view/ProfilePage.fxml").openStream());
 				ProfilePageController profilePageController = (ProfilePageController) loader.getController();
-				profilePageController.setUser(usernameField.getText());
+				profilePageController.setUser(info);
 				Stage stage = (Stage) signUpLink.getScene().getWindow();
 				stage.setTitle("Profile");
 				Scene scene = new Scene(root);
