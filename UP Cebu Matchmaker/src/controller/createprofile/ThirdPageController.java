@@ -8,8 +8,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Hyperlink;
+import main.CreateProfileData;
 
-public class ThirdPageController implements Initializable {
+public class ThirdPageController extends PageController implements Initializable {
 
 	@FXML private CheckBox noAnswerMusic;
 	@FXML private CheckBox jazz;
@@ -111,6 +112,18 @@ public class ThirdPageController implements Initializable {
 	
 	@FXML void hasMovie() {
 		noAnswerMovie.setSelected(false);
+	}
+
+	@Override
+	public void updateDataRepository(CreateProfileData dataRepository) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void initSavedState(CreateProfileData dataRepository) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

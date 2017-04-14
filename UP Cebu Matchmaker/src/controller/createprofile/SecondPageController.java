@@ -8,8 +8,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Hyperlink;
+import main.CreateProfileData;
 
-public class SecondPageController implements Initializable {
+public class SecondPageController extends PageController implements Initializable {
 
 	@FXML private CheckBox noAnswerSports;
 	@FXML private CheckBox aerobics;
@@ -122,5 +123,48 @@ public class SecondPageController implements Initializable {
 	@FXML
 	private void hasPets() {
 		noPreference.setSelected(false);
+	}
+
+	@Override
+	public void updateDataRepository(CreateProfileData dataRepository) {
+		ArrayList<String> sportsString = new ArrayList<String>();
+		ArrayList<String> hobbiesString = new ArrayList<String>();
+		ArrayList<String> petsString = new ArrayList<String>();
+		convertString(sportsString, sports);
+		convertString(hobbiesString, hobbies);
+		convertString(petsString, pets);
+		dataRepository.setSports(sportsString);
+		dataRepository.setHobbies(hobbiesString);
+		dataRepository.setPets(petsString);
+	}
+	
+	private void convertString(ArrayList<String> destination, ArrayList<CheckBox> source) {
+		for(CheckBox sourceValue : source) {
+			if(sourceValue.isSelected()) {
+				destination.add(sourceValue.getText());
+			}
+		}
+	}
+
+	@Override
+	public void initSavedState(CreateProfileData dataRepository) {
+		setValueCheckBox(dataRepository.getSports(), sports, noAnswerSports);
+		setValueCheckBox(dataRepository.getHobbies(), hobbies, noAnswerHobbies);
+		setValueCheckBox(dataRepository.getPets(), pets, noPreference);
+	}
+	
+	private void setValueCheckBox(ArrayList<String> stringList, 
+			ArrayList<CheckBox> checkBoxList, CheckBox defaultCheckBox) 
+	{
+		for(CheckBox checkBox : checkBoxList) {
+			for(String string : stringList) {
+				if(checkBox.getText().equals(string)) {
+					checkBox.setSelected(true);
+					defaultCheckBox.setSelected(false);
+					stringList.remove(string);
+					break;
+				}
+			}
+		}
 	}
 }

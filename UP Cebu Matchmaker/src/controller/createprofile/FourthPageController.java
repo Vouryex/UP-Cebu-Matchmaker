@@ -15,8 +15,9 @@ import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
+import main.CreateProfileData;
 
-public class FourthPageController implements Initializable {
+public class FourthPageController extends PageController implements Initializable {
 
 	@FXML ImageView profilePicture;
 	@FXML Button upload;
@@ -32,6 +33,18 @@ public class FourthPageController implements Initializable {
 		BufferedImage bufferedProfile = ImageIO.read(selectedFile);
 		Image profile = SwingFXUtils.toFXImage(bufferedProfile, null);
 		profilePicture.setImage(profile);
+	}
+
+	@Override
+	public void updateDataRepository(CreateProfileData dataRepository) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void initSavedState(CreateProfileData dataRepository) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }
