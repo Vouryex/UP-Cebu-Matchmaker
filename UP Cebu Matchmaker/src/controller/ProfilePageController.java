@@ -55,6 +55,7 @@ public class ProfilePageController implements Initializable {
 		Parent root = loader.load(getClass().getResource("/view/MatchesPage.fxml").openStream());
 		MatchesPageController matchesPageController = (MatchesPageController) loader.getController();
 		matchesPageController.setUsername(usernameLbl.getText());
+		matchesPageController.setID(id);
 		Stage stage = (Stage) matchesLink.getScene().getWindow();
 		stage.setTitle("Matches");
 		Scene scene = new Scene(root);
