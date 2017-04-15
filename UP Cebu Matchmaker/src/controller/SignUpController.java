@@ -38,6 +38,7 @@ public class SignUpController implements Initializable {
 	@FXML private PasswordField passwordField1;
 	@FXML private Label errorLbl;
 	@FXML private Label errorLbl1;
+	@FXML private Label lastErrorLbl;
 	@FXML private Button signUpBtn;
 	
 	@FXML private ToggleGroup drinker;
@@ -66,10 +67,13 @@ public class SignUpController implements Initializable {
 		noRBtn.setToggleGroup(drinker);
 	}
 	public void signUp(ActionEvent event) throws IOException {
+		String pp = "";
+		String height = "";
+		String bodyType = "";
 		try {
-			String pp = ppCombox.getValue();
-			String height = heightCombox.getValue();
-			String bodyType = btCombox.getValue();
+			pp = ppCombox.getValue();
+			height = heightCombox.getValue();
+			bodyType = btCombox.getValue();
 			UserData userData = new UserData();
 			System.out.println(firstNameField.getText());
 			System.out.println(surnameField.getText());
@@ -103,7 +107,7 @@ public class SignUpController implements Initializable {
 					errorLbl.setText("Inserted.");
 				} else {
 					errorLbl.setStyle("-fx-text-fill: #eb0404");
-					errorLbl.setText("Username already exists.");
+					errorLbl.setText("Invalid Credentials.");
 				}
 			} else {
 				errorLbl1.setStyle("-fx-text-fill: #eb0404");
@@ -111,20 +115,26 @@ public class SignUpController implements Initializable {
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			errorLbl.setText("Username already exists.");
+			lastErrorLbl.setStyle("-fx-text-fill: #eb0404");
+			lastErrorLbl.setText("Please fill up all the fields.");
 			e.printStackTrace();
 		}
-		
-		FXMLLoader loader = new FXMLLoader();
-		Parent root = loader.load(getClass().getResource("/view/profile/CreateProfile.fxml").openStream());
-		CreateProfileController createProfileController = (CreateProfileController) loader.getController();
-		createProfileController.setId(id);
-		Stage stage = (Stage) signUpBtn.getScene().getWindow();
-		stage.setTitle("Create Your Profile");
-		Scene scene = new Scene(root);
-		scene.getStylesheets().add("/theme/pastel.css");
-		stage.setScene(scene);
-		stage.show();
+		if (!(firstNameField.getText().equals("")) && !(surnameField.getText().equals("")) && !(pp.equals(null)) && !(bodyType.equals(null)) && !(height.equals(null)) && !(ageCombox.getValue().equals(null))
+				&& !(usernameField.getText().equals("")) && !(passwordField.getText().equals(""))) {
+			FXMLLoader loader = new FXMLLoader();
+			Parent root = loader.load(getClass().getResource("/view/profile/CreateProfile.fxml").openStream());
+			CreateProfileController createProfileController = (CreateProfileController) loader.getController();
+			createProfileController.setId(id);
+			Stage stage = (Stage) signUpBtn.getScene().getWindow();
+			stage.setTitle("Create Your Profile");
+			Scene scene = new Scene(root);
+			scene.getStylesheets().add("/theme/pastel.css");
+			stage.setScene(scene);
+			stage.show();
+		} else {
+			lastErrorLbl.setStyle("-fx-text-fill: #eb0404");
+			lastErrorLbl.setText("Please fill up all the fields.");
+		}
 	}
 	
 	public void setId(int id) {

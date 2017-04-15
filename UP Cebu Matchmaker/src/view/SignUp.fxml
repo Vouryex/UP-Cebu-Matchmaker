@@ -70,7 +70,8 @@
                               <ToggleGroup fx:id="drinker" />
                            </toggleGroup>
                         </RadioButton>
-                        <Button fx:id="signUpBtn" layoutX="215.0" layoutY="379.0" mnemonicParsing="false" onAction="#signUp" text="Sign Up" />
+                        <Button fx:id="signUpBtn" layoutX="215.0" layoutY="395.0" mnemonicParsing="false" onAction="#signUp" text="Sign Up" />
+                        <Label fx:id="lastErrorLbl" layoutX="183.0" layoutY="366.0" prefHeight="17.0" prefWidth="210.0" textAlignment="CENTER" />
                      </children>
                   </AnchorPane>
             </content>
