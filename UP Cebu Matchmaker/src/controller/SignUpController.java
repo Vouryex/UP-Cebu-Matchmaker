@@ -3,10 +3,10 @@ package controller;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+import controller.createprofile.CreateProfileController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,7 +15,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.RadioButton;
@@ -27,7 +26,7 @@ import main.UserData;
 import model.SignUpModel;
 
 public class SignUpController implements Initializable {
-	public SignUpModel signUpModel = new SignUpModel();
+	public SignUpModel signUpModel = new SignUpModel(this);
 	@FXML private TextField firstNameField;
 	@FXML private TextField surnameField;
 	@FXML private RadioButton maleRBtn;
@@ -47,6 +46,8 @@ public class SignUpController implements Initializable {
 	@FXML private ComboBox<String> btCombox;
 	@FXML private RadioButton yesRBtn;
 	@FXML private RadioButton noRBtn;
+	
+	private int id;
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
@@ -114,12 +115,19 @@ public class SignUpController implements Initializable {
 			e.printStackTrace();
 		}
 		
-		Parent root = FXMLLoader.load(getClass().getResource("/view/profile/CreateProfile.fxml"));
+		FXMLLoader loader = new FXMLLoader();
+		Parent root = loader.load(getClass().getResource("/view/profile/CreateProfile.fxml").openStream());
+		CreateProfileController createProfileController = (CreateProfileController) loader.getController();
+		createProfileController.setId(id);
 		Stage stage = (Stage) signUpBtn.getScene().getWindow();
 		stage.setTitle("Create Your Profile");
 		Scene scene = new Scene(root);
 		scene.getStylesheets().add("/theme/pastel.css");
 		stage.setScene(scene);
 		stage.show();
+	}
+	
+	public void setId(int id) {
+		this.id = id;
 	}
 }

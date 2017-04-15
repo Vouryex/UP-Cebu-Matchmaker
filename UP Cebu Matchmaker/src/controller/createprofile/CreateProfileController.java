@@ -28,6 +28,7 @@ public class CreateProfileController implements Initializable {
 	private int currPageNum;
 	private PageController pageController;
 	private CreateProfileData dataRepository = new CreateProfileData();
+	private int id;
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1)  {
@@ -89,12 +90,16 @@ public class CreateProfileController implements Initializable {
 		FXMLLoader loader = new FXMLLoader();
 		Parent root = loader.load(getClass().getResource("/view/ProfilePage.fxml").openStream());
 		ProfilePageController profilePageController = (ProfilePageController) loader.getController();
-		//profilePageController.setUser(usernameField.getText());
+		profilePageController.setId(id);
 		Stage stage = (Stage) questionArea.getScene().getWindow();
 		stage.setTitle("Profile");
 		Scene scene = new Scene(root);
 		scene.getStylesheets().add("/theme/pastel.css");
 		stage.setScene(scene);
 		stage.show();
+	}
+	
+	public void setId(int id) {
+		this.id = id;
 	}
 }

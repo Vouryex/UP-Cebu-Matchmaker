@@ -27,6 +27,8 @@ public class ProfilePageController {
 	private Label ageLbl;
 	@FXML
 	private Hyperlink matchesLink;
+	
+	private int id;
 
 	// Event Listener on Hyperlink[#matchesLink].onAction
 	@FXML
@@ -49,5 +51,9 @@ public class ProfilePageController {
 		usernameHead.setText(info.get(3));
 		nameLbl.setText(info.get(0) + " " + info.get(1));
 		ageLbl.setText(info.get(2));
+	}
+	
+	public void setId(int id) {
+		this.id = id;
 	}
 }
