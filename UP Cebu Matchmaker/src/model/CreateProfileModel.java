@@ -7,6 +7,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -47,14 +48,20 @@ public class CreateProfileModel {
 	private void insertGenderInterests(PreparedStatement preparedStatement, 
 			CreateProfileData dataRepository, int id) throws SQLException 
 	{
+		String queryFind = "SELECT user_id FROM gender_interests WHERE user_id = ?";   // checks if there is a duplicate
 		String query = "INSERT INTO gender_interests(user_id, gender)" + 
 				   "VALUES(?, ?)";
 		
-		preparedStatement = connection.prepareStatement(query);
+		preparedStatement = connection.prepareStatement(queryFind);
 		preparedStatement.setString(1, String.valueOf(id));
-		preparedStatement.setString(2, dataRepository.getGender());
-		
-		preparedStatement.executeUpdate();
+		ResultSet resultSet = preparedStatement.executeQuery();
+		if (!resultSet.next()) {		
+			preparedStatement = connection.prepareStatement(query);
+			preparedStatement.setString(1, String.valueOf(id));
+			preparedStatement.setString(2, dataRepository.getGender());
+			
+			preparedStatement.executeUpdate();
+		}
 		preparedStatement.close();
 	}
 	
