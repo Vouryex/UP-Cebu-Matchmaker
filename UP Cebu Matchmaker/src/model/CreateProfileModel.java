@@ -48,20 +48,14 @@ public class CreateProfileModel {
 	private void insertGenderInterests(PreparedStatement preparedStatement, 
 			CreateProfileData dataRepository, int id) throws SQLException 
 	{
-		String queryFind = "SELECT user_id FROM gender_interests WHERE user_id = ?";   // checks if there is a duplicate
 		String query = "INSERT INTO gender_interests(user_id, gender)" + 
 				   "VALUES(?, ?)";
 		
-		preparedStatement = connection.prepareStatement(queryFind);
+		preparedStatement = connection.prepareStatement(query);
 		preparedStatement.setString(1, String.valueOf(id));
-		ResultSet resultSet = preparedStatement.executeQuery();
-		if (!resultSet.next()) {		
-			preparedStatement = connection.prepareStatement(query);
-			preparedStatement.setString(1, String.valueOf(id));
-			preparedStatement.setString(2, dataRepository.getGender());
-			
-			preparedStatement.executeUpdate();
-		}
+		preparedStatement.setString(2, dataRepository.getGender());
+		
+		preparedStatement.executeUpdate();
 		preparedStatement.close();
 	}
 	
