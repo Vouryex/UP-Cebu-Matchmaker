@@ -85,7 +85,7 @@ public class SignUpController implements Initializable {
 				userData.setGender(femaleRBtn.getText());
 			}
 			userData.setAge(ageCombox.getValue());
-			userData.setUsername(usernameField.getText());
+			userData.setUsername(usernameField.getText().toLowerCase());
 			userData.setPassword(passwordField.getText());
 			userData.setPoliticalParty(pp);
 			userData.setHeight(height);

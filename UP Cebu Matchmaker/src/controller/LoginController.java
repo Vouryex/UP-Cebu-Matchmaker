@@ -37,12 +37,12 @@ public class LoginController implements Initializable {
 				errorLbl.setStyle("-fx-text-fill: black");
 				errorLbl.setText("Match.");   // testing purposes
 				ArrayList<String> info = new ArrayList<String>();
-				info = loginModel.getInfo(usernameField.getText());
+				//info = loginModel.getInfo(usernameField.getText());
 				FXMLLoader loader = new FXMLLoader();
 				Parent root = loader.load(getClass().getResource("/view/ProfilePage.fxml").openStream());
 				ProfilePageController profilePageController = (ProfilePageController) loader.getController();
 				//profilePageController.setUser(info);
-				int id = loginModel.getID(usernameField.getText());
+				int id = loginModel.getID(usernameField.getText().toLowerCase());
 				profilePageController.displayData(id);
 				Stage stage = (Stage) signUpLink.getScene().getWindow();
 				stage.setTitle("Profile");

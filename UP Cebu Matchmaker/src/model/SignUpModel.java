@@ -51,25 +51,4 @@ public class SignUpModel {
 			preparedStatement.close();
 		}
 	}
-	
-	public boolean confirmData(String height, String bodyType, String drinker) throws SQLException {
-		PreparedStatement preparedStatement = null;
-		String query = "UPDATE user SET political_party = ? , "
-                + "height = ? " + "body_type = ? " + "drinker = ? "
-                + "WHERE id = ?";
-		try {
-			preparedStatement = connection.prepareStatement(query);
-			preparedStatement.setString(1, height);
-			preparedStatement.setString(2, bodyType);
-			preparedStatement.setString(3, drinker);
-			
-			preparedStatement.executeUpdate();
-			return true;
-		} catch (Exception e) {
-			System.out.println(e);
-			return false;
-		} finally {
-			preparedStatement.close();
-		}
-	}
 }

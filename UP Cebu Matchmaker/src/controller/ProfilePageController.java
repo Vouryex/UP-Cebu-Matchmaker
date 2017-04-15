@@ -54,7 +54,7 @@ public class ProfilePageController implements Initializable {
 		FXMLLoader loader = new FXMLLoader();
 		Parent root = loader.load(getClass().getResource("/view/MatchesPage.fxml").openStream());
 		MatchesPageController matchesPageController = (MatchesPageController) loader.getController();
-		matchesPageController.setUsername(usernameLbl.getText());
+		matchesPageController.setUsername(usernameLbl.getText().toLowerCase());
 		matchesPageController.setID(id);
 		Stage stage = (Stage) matchesLink.getScene().getWindow();
 		stage.setTitle("Matches");

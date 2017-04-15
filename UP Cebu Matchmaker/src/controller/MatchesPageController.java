@@ -51,7 +51,7 @@ public class MatchesPageController {
 		Parent root = loader.load(getClass().getResource("/view/ProfilePage.fxml").openStream());
 		ProfilePageController profilePageController = (ProfilePageController) loader.getController();
 		//profilePageController.setUser(info);
-		int id = loginModel.getID(username);
+		int id = loginModel.getID(username.toLowerCase());
 		profilePageController.displayData(id);
 		profilePageController.setId(id);
 		Stage stage = (Stage) backBtn.getScene().getWindow();
