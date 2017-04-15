@@ -1,7 +1,10 @@
 package controller.createprofile;
 
 import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -19,17 +22,18 @@ import main.CreateProfileData;
 
 public class FourthPageController extends PageController implements Initializable {
 
-	@FXML ImageView profilePicture;
-	@FXML Button upload;
+	@FXML private ImageView profilePicture;
+	@FXML private Button upload;
+	private File selectedFile;
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-				
+		
 	}
 	
 	public void uploadPic() throws IOException {
 		FileChooser fileChooser = new FileChooser();
-		File selectedFile = fileChooser.showOpenDialog(null);
+		selectedFile = fileChooser.showOpenDialog(null);
 		BufferedImage bufferedProfile = ImageIO.read(selectedFile);
 		Image profile = SwingFXUtils.toFXImage(bufferedProfile, null);
 		profilePicture.setImage(profile);
@@ -37,14 +41,19 @@ public class FourthPageController extends PageController implements Initializabl
 
 	@Override
 	public void updateDataRepository(CreateProfileData dataRepository) {
-		// TODO Auto-generated method stub
-		
+		dataRepository.setProfilePicture(selectedFile);
 	}
 
 	@Override
 	public void initSavedState(CreateProfileData dataRepository) {
-		// TODO Auto-generated method stub
-		
+		try {
+			selectedFile = dataRepository.getProfilePicture();
+			BufferedImage bufferedProfile = ImageIO.read(selectedFile);
+			Image profile = SwingFXUtils.toFXImage(bufferedProfile, null);
+			profilePicture.setImage(profile);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
-	
 }

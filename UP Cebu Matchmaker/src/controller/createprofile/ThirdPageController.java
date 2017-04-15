@@ -116,14 +116,43 @@ public class ThirdPageController extends PageController implements Initializable
 
 	@Override
 	public void updateDataRepository(CreateProfileData dataRepository) {
-		// TODO Auto-generated method stub
+		ArrayList<String> musicListString = new ArrayList<String>();
+		ArrayList<String> movieListString = new ArrayList<String>();
+		convertString(musicListString, musicList);
+		convertString(movieListString, movieList);
+		dataRepository.setMusicGenres(musicListString);
+		dataRepository.setMovieGenres(movieListString);
 		
+	}
+	
+	private void convertString(ArrayList<String> destination, ArrayList<CheckBox> source) {
+		for(CheckBox sourceValue : source) {
+			if(sourceValue.isSelected()) {
+				destination.add(sourceValue.getText());
+			}
+		}
 	}
 
 	@Override
 	public void initSavedState(CreateProfileData dataRepository) {
-		// TODO Auto-generated method stub
+		setValueCheckBox(dataRepository.getMusicGenres(), musicList, noAnswerMusic);
+		setValueCheckBox(dataRepository.getMovieGenres(), movieList, noAnswerMovie);
 		
+	}
+	
+	private void setValueCheckBox(ArrayList<String> stringList, 
+			ArrayList<CheckBox> checkBoxList, CheckBox defaultCheckBox) 
+	{
+		for(CheckBox checkBox : checkBoxList) {
+			for(String string : stringList) {
+				if(checkBox.getText().equals(string)) {
+					checkBox.setSelected(true);
+					defaultCheckBox.setSelected(false);
+					stringList.remove(string);
+					break;
+				}
+			}
+		}
 	}
 
 }

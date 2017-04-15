@@ -1,5 +1,6 @@
 package main;
 
+import java.io.File;
 import java.util.ArrayList;
 
 public class CreateProfileData {
@@ -13,6 +14,15 @@ public class CreateProfileData {
 	private ArrayList<String> sports = new ArrayList<String>();
 	private ArrayList<String> hobbies = new ArrayList<String>();
 	private ArrayList<String> pets = new ArrayList<String>();
+	
+	private ArrayList<String> musicGenres = new ArrayList<String>();
+	private ArrayList<String> movieGenres = new ArrayList<String>();
+	
+	private File profilePicture;
+	
+	public CreateProfileData() {
+		profilePicture = new File("/resources/default pic.jpg");
+	}
 	
 	public String getGender() {
 		return gender;
@@ -84,6 +94,30 @@ public class CreateProfileData {
 
 	public void setPets(ArrayList<String> pets) {
 		this.pets = pets;
+	}
+
+	public ArrayList<String> getMusicGenres() {
+		return musicGenres;
+	}
+
+	public void setMusicGenres(ArrayList<String> musicGenres) {
+		this.musicGenres = musicGenres;
+	}
+
+	public ArrayList<String> getMovieGenres() {
+		return movieGenres;
+	}
+
+	public void setMovieGenres(ArrayList<String> movieGenres) {
+		this.movieGenres = movieGenres;
+	}
+
+	public File getProfilePicture() {
+		return profilePicture;
+	}
+
+	public void setProfilePicture(File profilePicture) {
+		this.profilePicture = profilePicture;
 	}
 	
 	
