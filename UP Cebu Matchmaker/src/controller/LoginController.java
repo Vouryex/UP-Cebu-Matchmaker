@@ -41,7 +41,9 @@ public class LoginController implements Initializable {
 				FXMLLoader loader = new FXMLLoader();
 				Parent root = loader.load(getClass().getResource("/view/ProfilePage.fxml").openStream());
 				ProfilePageController profilePageController = (ProfilePageController) loader.getController();
-				profilePageController.setUser(info);
+				//profilePageController.setUser(info);
+				int id = loginModel.getID(usernameField.getText());
+				profilePageController.displayData(id);
 				Stage stage = (Stage) signUpLink.getScene().getWindow();
 				stage.setTitle("Profile");
 				Scene scene = new Scene(root);

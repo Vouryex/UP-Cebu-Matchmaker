@@ -101,27 +101,27 @@ public class ProfilePageController implements Initializable {
 		String movieText = "";
 		
 		for (int i = 0; i < bodyList.size(); i++) {
-			bodyText += bodyList.get(i) + " ";
+			bodyText += bodyList.get(i) + ", ";
 		}
 		
 		for (int i = 0; i < sportsList.size(); i++) {
-			sportsText += sportsList.get(i) + " ";
+			sportsText += sportsList.get(i) + ", ";
 		}
 		
 		for (int i = 0; i < hobbiesList.size(); i++) {
-			hobbiesText += hobbiesList.get(i) + " ";
+			hobbiesText += hobbiesList.get(i) + ", ";
 		}
 		
 		for (int i = 0; i < petsList.size(); i++) {
-			petsText += petsList.get(i) + " ";
+			petsText += petsList.get(i) + ", ";
 		}
 		
 		for (int i = 0; i < musicList.size(); i++) {
-			musicText += musicList.get(i) + " ";
+			musicText += musicList.get(i) + ", ";
 		}
 		
 		for (int i = 0; i < movieList.size(); i++) {
-			movieText += movieList.get(i) + " ";
+			movieText += movieList.get(i) + ", ";
 		}
 		
 		usernameLbl.setText(info.get(3));

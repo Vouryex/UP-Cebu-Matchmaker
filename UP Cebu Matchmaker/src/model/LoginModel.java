@@ -67,6 +67,22 @@ public class LoginModel {
 			e.printStackTrace();
 		}
 		return info;
-		
+	}
+	
+	public int getID(String user) {
+		PreparedStatement preparedStatement = null;
+		ResultSet resultSet = null;
+		String query = "SELECT * FROM user WHERE username = ?";
+		int id = 0;
+		try {
+			preparedStatement = connection.prepareStatement(query);
+			preparedStatement.setString(1, user);
+			resultSet = preparedStatement.executeQuery();
+			id = resultSet.getInt("id");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return id;
 	}
 }

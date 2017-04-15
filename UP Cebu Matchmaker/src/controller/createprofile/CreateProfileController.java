@@ -86,7 +86,7 @@ public class CreateProfileController implements Initializable {
 			FXMLLoader loader = new FXMLLoader();
 			Parent page = loader.load(getClass().getResource(PageManager.getPage(currPageNum)).openStream());
 			pageController = (PageController) loader.getController();
-			//pageController.initSavedState(dataRepository);
+			pageController.initSavedState(dataRepository);
 			questionArea.getChildren().add(page);
 			backArrow.setDisable(false);
 		}
