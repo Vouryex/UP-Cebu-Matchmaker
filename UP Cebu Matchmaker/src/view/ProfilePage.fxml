@@ -11,7 +11,7 @@
 
 <AnchorPane prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ProfilePageController">
    <children>
-      <ImageView fitHeight="124.0" fitWidth="235.0" layoutX="26.0" layoutY="61.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="139.0" fitWidth="235.0" layoutX="26.0" layoutY="46.0" pickOnBounds="true" preserveRatio="true" />
       <Label layoutX="14.0" layoutY="10.0" prefHeight="35.0" prefWidth="66.0" text="Welcome">
          <font>
             <Font name="Trebuchet MS" size="14.0" />
@@ -30,12 +30,12 @@
       <Hyperlink fx:id="editLink" layoutX="273.0" layoutY="121.0" prefHeight="23.0" prefWidth="142.0" text="edit your profile" />
       <Label fx:id="nameLbl" layoutX="61.0" layoutY="186.0" prefHeight="23.0" prefWidth="165.0">
          <font>
-            <Font name="Trebuchet MS" size="18.0" />
+            <Font name="Trebuchet MS" size="16.0" />
          </font>
       </Label>
       <Label fx:id="ageLbl" layoutX="61.0" layoutY="209.0" prefHeight="23.0" prefWidth="165.0">
          <font>
-            <Font name="Trebuchet MS" size="18.0" />
+            <Font name="Trebuchet MS" size="16.0" />
          </font>
       </Label>
       <Hyperlink fx:id="matchesLink" layoutX="273.0" layoutY="145.0" onAction="#matchesLinkClick" prefHeight="23.0" prefWidth="142.0" text="your matches" />
