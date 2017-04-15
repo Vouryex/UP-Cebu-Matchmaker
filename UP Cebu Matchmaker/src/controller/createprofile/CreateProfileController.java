@@ -2,6 +2,7 @@ package controller.createprofile;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 import controller.ProfilePageController;
@@ -18,7 +19,7 @@ import model.CreateProfileModel;
 
 public class CreateProfileController implements Initializable {
 
-	public CreateProfileModel createProfileMode = new CreateProfileModel(); 
+	public CreateProfileModel createProfileModel = new CreateProfileModel(); 
 	@FXML private Pane questionArea;
 	@FXML private ImageView heart;
 	@FXML private ImageView ball;
@@ -70,6 +71,12 @@ public class CreateProfileController implements Initializable {
 	
 	public void next() throws IOException {
 		if(currPageNum == PageManager.maxPage()) {
+			try {
+				createProfileModel.insertData(dataRepository, id);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			profilePageScene();
 		} else {
 			pageController.updateDataRepository(dataRepository);
