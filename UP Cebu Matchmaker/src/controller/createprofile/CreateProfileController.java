@@ -69,7 +69,7 @@ public class CreateProfileController implements Initializable {
 
 	}
 	
-	public void next() throws IOException {
+	public void next() throws IOException, SQLException {
 		pageController.updateDataRepository(dataRepository);
 		
 		if(currPageNum == PageManager.maxPage()) {
@@ -86,18 +86,19 @@ public class CreateProfileController implements Initializable {
 			FXMLLoader loader = new FXMLLoader();
 			Parent page = loader.load(getClass().getResource(PageManager.getPage(currPageNum)).openStream());
 			pageController = (PageController) loader.getController();
-			pageController.initSavedState(dataRepository);
+			//pageController.initSavedState(dataRepository);
 			questionArea.getChildren().add(page);
 			backArrow.setDisable(false);
 		}
 
 	}
 	
-	private void profilePageScene() throws IOException {
+	private void profilePageScene() throws IOException, SQLException {
 		FXMLLoader loader = new FXMLLoader();
 		Parent root = loader.load(getClass().getResource("/view/ProfilePage.fxml").openStream());
 		ProfilePageController profilePageController = (ProfilePageController) loader.getController();
 		profilePageController.setId(id);
+		profilePageController.displayData(id);
 		Stage stage = (Stage) questionArea.getScene().getWindow();
 		stage.setTitle("Profile");
 		Scene scene = new Scene(root);

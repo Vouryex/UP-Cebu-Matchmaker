@@ -2,19 +2,26 @@ package controller;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 
 import java.io.IOException;
+import java.net.URL;
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
 
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
+import model.ProfilePageModel;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Hyperlink;
 
-public class ProfilePageController {
+public class ProfilePageController implements Initializable {
+	public ProfilePageModel profilePageModel = new ProfilePageModel();
 	@FXML
 	private Label usernameLbl;
 	@FXML
@@ -28,6 +35,16 @@ public class ProfilePageController {
 	@FXML
 	private Hyperlink matchesLink;
 	
+	@FXML
+	private TextArea genderTxtA;
+	@FXML
+	private TextArea bodyTxtA;
+	@FXML
+	private TextArea sportTxtA;
+	@FXML
+	private TextArea petTxtA;
+	@FXML
+	private TextArea musicTxtA;
 	private int id;
 
 	// Event Listener on Hyperlink[#matchesLink].onAction
@@ -53,7 +70,80 @@ public class ProfilePageController {
 		ageLbl.setText(info.get(2));
 	}
 	
+	public void displayData(int id) throws SQLException {
+		String gender = profilePageModel.retrieveGender(id);
+		
+		ArrayList<String> info = new ArrayList<String>();
+		ArrayList<Integer> ageList = new ArrayList<Integer>();
+		ArrayList<Integer> heightList = new ArrayList<Integer>();
+		ArrayList<String> bodyList = new ArrayList<String>();
+		ArrayList<String> sportsList = new ArrayList<String>();
+		ArrayList<String> hobbiesList = new ArrayList<String>();
+		ArrayList<String> petsList = new ArrayList<String>();
+		ArrayList<String> musicList = new ArrayList<String>();
+		ArrayList<String> movieList = new ArrayList<String>();
+		
+		info = profilePageModel.getInfo(id);
+		ageList = profilePageModel.retrieveAges(id);
+		heightList = profilePageModel.retrieveHeights(id);
+		bodyList = profilePageModel.retrieveBodyTypes(id);
+		sportsList = profilePageModel.retrieveSports(id);
+		hobbiesList = profilePageModel.retrieveHobbies(id);
+		petsList = profilePageModel.retrievePets(id);
+		musicList = profilePageModel.retrieveMusic(id);
+		movieList = profilePageModel.retrieveMovies(id);
+		
+		String bodyText = "";
+		String sportsText = "";
+		String hobbiesText = "";
+		String petsText = "";
+		String musicText = "";
+		String movieText = "";
+		
+		for (int i = 0; i < bodyList.size(); i++) {
+			bodyText += bodyList.get(i) + " ";
+		}
+		
+		for (int i = 0; i < sportsList.size(); i++) {
+			sportsText += sportsList.get(i) + " ";
+		}
+		
+		for (int i = 0; i < hobbiesList.size(); i++) {
+			hobbiesText += hobbiesList.get(i) + " ";
+		}
+		
+		for (int i = 0; i < petsList.size(); i++) {
+			petsText += petsList.get(i) + " ";
+		}
+		
+		for (int i = 0; i < musicList.size(); i++) {
+			musicText += musicList.get(i) + " ";
+		}
+		
+		for (int i = 0; i < movieList.size(); i++) {
+			movieText += movieList.get(i) + " ";
+		}
+		
+		usernameLbl.setText(info.get(3));
+		usernameHead.setText(info.get(3));
+		nameLbl.setText(info.get(0) + " " + info.get(1));
+		ageLbl.setText(info.get(2));
+		genderTxtA.appendText("Looking for a " + gender + " between ages " + ageList.get(0) + " - " + ageList.get(1)
+		+ " with a height between " + heightList.get(0) + " cm - " + heightList.get(1) + " cm");
+		bodyTxtA.appendText(bodyText);
+		sportTxtA.appendText("Sports: " + sportsText + "\n");
+		sportTxtA.appendText("Hobbies: " + hobbiesText + "\n");
+		petTxtA.appendText(petsText);
+		musicTxtA.appendText("Music: " + musicText + "\n");
+		musicTxtA.appendText("Movie: " + movieText + "\n");
+	}
+	
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	@Override
+	public void initialize(URL arg0, ResourceBundle arg1) {
+		// TODO Auto-generated method stub
 	}
 }
