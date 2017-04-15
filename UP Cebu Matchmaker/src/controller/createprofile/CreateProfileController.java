@@ -70,6 +70,8 @@ public class CreateProfileController implements Initializable {
 	}
 	
 	public void next() throws IOException {
+		pageController.updateDataRepository(dataRepository);
+		
 		if(currPageNum == PageManager.maxPage()) {
 			try {
 				createProfileModel.insertData(dataRepository, id);
@@ -78,9 +80,7 @@ public class CreateProfileController implements Initializable {
 				e.printStackTrace();
 			}
 			profilePageScene();
-		} else {
-			pageController.updateDataRepository(dataRepository);
-			
+		} else {			
 			currPageNum++;
 			questionArea.getChildren().clear();
 			FXMLLoader loader = new FXMLLoader();

@@ -1,5 +1,10 @@
 package model;
 
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -26,6 +31,12 @@ public class CreateProfileModel {
 			insertAgeInterests(preparedStatement, dataRepository, id);
 			insertHeightInterests(preparedStatement, dataRepository, id);
 			insertBodyInterests(preparedStatement, dataRepository, id);
+			insertSportsInterests(preparedStatement, dataRepository, id);
+			insertHobbiesInterests(preparedStatement, dataRepository, id);
+			insertPetsInterests(preparedStatement, dataRepository, id);
+			insertMusicInterests(preparedStatement, dataRepository, id);
+			insertMovieInterests(preparedStatement, dataRepository, id);
+			//insertProfilePicture(preparedStatement, dataRepository, id);
 			return true;
 		} catch (Exception e) {
 			System.out.println(e);
@@ -84,19 +95,116 @@ public class CreateProfileModel {
 				   "VALUES(?, ?)";
 		
 		preparedStatement = connection.prepareStatement(query);
-		insertEachBodyType(preparedStatement, dataRepository.getBodyType(), id);
+		insertEachData(preparedStatement, dataRepository.getBodyType(), id);
 
 		preparedStatement.close();
 	}
 	
-	private void insertEachBodyType(PreparedStatement preparedStatement, 
-			ArrayList<String> bodyTypes, int id) throws SQLException 
+	private void insertEachData(PreparedStatement preparedStatement, 
+			ArrayList<String> dataList, int id) throws SQLException 
 	{
-		for(String bodyType : bodyTypes) {
+		for(String data : dataList) {
 			preparedStatement.setString(1, String.valueOf(id));
-			preparedStatement.setString(2, bodyType);
+			preparedStatement.setString(2, data);
 			
 			preparedStatement.executeUpdate();
 		}
 	}
+	
+	private void insertSportsInterests(PreparedStatement preparedStatement, 
+			CreateProfileData dataRepository, int id) throws SQLException 
+	{
+		String query = "INSERT INTO sports_interests(user_id, sport)" + 
+				   "VALUES(?, ?)";
+		
+		preparedStatement = connection.prepareStatement(query);
+		insertEachData(preparedStatement, dataRepository.getSports(), id);
+
+		preparedStatement.close();
+	}
+
+	
+	private void insertHobbiesInterests(PreparedStatement preparedStatement, 
+			CreateProfileData dataRepository, int id) throws SQLException 
+	{
+		String query = "INSERT INTO hobbies_interests(user_id, hobby)" + 
+				   "VALUES(?, ?)";
+		
+		preparedStatement = connection.prepareStatement(query);
+		insertEachData(preparedStatement, dataRepository.getHobbies(), id);
+
+		preparedStatement.close();
+	}
+	
+
+	
+	private void insertPetsInterests(PreparedStatement preparedStatement, 
+			CreateProfileData dataRepository, int id) throws SQLException 
+	{
+		String query = "INSERT INTO pets_interests(user_id, pet)" + 
+				   "VALUES(?, ?)";
+		
+		preparedStatement = connection.prepareStatement(query);
+		insertEachData(preparedStatement, dataRepository.getPets(), id);
+
+		preparedStatement.close();
+	}
+	
+	private void insertMusicInterests(PreparedStatement preparedStatement, 
+			CreateProfileData dataRepository, int id) throws SQLException 
+	{
+		String query = "INSERT INTO music_interests(user_id, genre)" + 
+				   "VALUES(?, ?)";
+		
+		preparedStatement = connection.prepareStatement(query);
+		insertEachData(preparedStatement, dataRepository.getMusicGenres(), id);
+
+		preparedStatement.close();
+	}
+	
+	private void insertMovieInterests(PreparedStatement preparedStatement, 
+			CreateProfileData dataRepository, int id) throws SQLException 
+	{
+		String query = "INSERT INTO movie_interests(user_id, genre)" + 
+				   "VALUES(?, ?)";
+		
+		preparedStatement = connection.prepareStatement(query);
+		insertEachData(preparedStatement, dataRepository.getMovieGenres(), id);
+
+		preparedStatement.close();
+	}
+	
+//	private void insertProfilePicture(PreparedStatement preparedStatement, 
+//			CreateProfileData dataRepository, int id) throws SQLException 
+//	{
+//		try {
+//			String query = "UPDATE user" + 
+//					   	   "SET profile_picture = ?" + 
+//					   	   "WHERE id == ?";
+//			
+//			File profilePicture = dataRepository.getProfilePicture();
+//			FileInputStream fis = new FileInputStream(profilePicture);
+//			ByteArrayOutputStream baos = new ByteArrayOutputStream();
+//			byte[] buf = new byte[1024];
+//			for(int readNum; (readNum = fis.read(buf)) != -1;) {
+//				baos.write(buf, 0, readNum);
+//			}
+//			fis.close();
+//			
+//			preparedStatement = connection.prepareStatement(query);
+//			preparedStatement.setBytes(1, baos.toByteArray());
+//			preparedStatement.setString(2, String.valueOf(id));
+//			
+//			preparedStatement.executeUpdate();
+//			preparedStatement.close();
+//		} catch (FileNotFoundException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//
+//		preparedStatement.close();
+//	}
 }
