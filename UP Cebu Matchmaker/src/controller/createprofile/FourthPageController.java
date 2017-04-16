@@ -43,14 +43,14 @@ public class FourthPageController extends PageController implements Initializabl
 
 	@Override
 	public void initSavedState(CreateProfileData dataRepository) {
-//		try {
-//			selectedFile = dataRepository.getProfilePicture();
-//			BufferedImage bufferedProfile = ImageIO.read(selectedFile);
-//			Image profile = SwingFXUtils.toFXImage(bufferedProfile, null);
-//			profilePicture.setImage(profile);
-//		} catch (IOException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
+		try {
+			selectedFile = dataRepository.getProfilePicture();
+			BufferedImage bufferedProfile = ImageIO.read(selectedFile);
+			Image profile = SwingFXUtils.toFXImage(bufferedProfile, null);
+			profilePicture.setImage(profile);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }

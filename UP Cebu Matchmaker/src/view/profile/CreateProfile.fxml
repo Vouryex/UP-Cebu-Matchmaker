@@ -15,15 +15,15 @@
       </Label>
       <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="287.0" layoutY="130.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="/resources/ball.png" />
+            <Image url="ball.png" />
          </image></ImageView>
       <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="80.0" layoutY="130.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="/resources/heart.png" />
+            <Image url="heart.png" />
          </image></ImageView>
       <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="480.0" layoutY="130.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="/resources/camera.png" />
+            <Image url="ball.png" />
          </image></ImageView>
       <Label layoutX="54.0" layoutY="98.0" text="About Him/Her" />
       <Label layoutX="264.0" layoutY="98.0" text="Your Interests" />
@@ -31,12 +31,12 @@
       <AnchorPane fx:id="questionArea" layoutX="1.0" layoutY="165.0" prefHeight="280.0" prefWidth="600.0" />
       <ImageView fx:id="backArrow" disable="true" fitHeight="30.0" fitWidth="30.0" layoutX="14.0" layoutY="462.0" onMouseClicked="#back" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
          <image>
-            <Image url="/resources/left arrow.png" />
+            <Image url="left arrow.png" />
          </image>
       </ImageView>
       <ImageView fx:id="nextArrow" fitHeight="30.0" fitWidth="30.0" layoutX="556.0" layoutY="462.0" onMouseClicked="#next" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
          <image>
-            <Image url="/resources/right arrow.png" />
+            <Image url="right arrow.png" />
          </image>
       </ImageView>
       <Label layoutX="55.0" layoutY="469.0" text="Back" />

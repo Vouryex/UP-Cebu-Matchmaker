@@ -21,7 +21,7 @@ public class CreateProfileData {
 	private File profilePicture;
 	
 	public CreateProfileData() {
-		profilePicture = new File("/resources/default pic.jpg");
+		profilePicture = new File("res/default pic.jpg");
 	}
 	
 	public String getGender() {
