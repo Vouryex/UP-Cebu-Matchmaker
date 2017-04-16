@@ -37,7 +37,7 @@ public class CreateProfileModel {
 			insertPetsInterests(preparedStatement, dataRepository, id);
 			insertMusicInterests(preparedStatement, dataRepository, id);
 			insertMovieInterests(preparedStatement, dataRepository, id);
-			//insertProfilePicture(preparedStatement, dataRepository, id);
+			insertProfilePicture(preparedStatement, dataRepository, id);
 			return true;
 		} catch (Exception e) {
 			System.out.println(e);
@@ -175,37 +175,37 @@ public class CreateProfileModel {
 		preparedStatement.close();
 	}
 	
-//	private void insertProfilePicture(PreparedStatement preparedStatement, 
-//			CreateProfileData dataRepository, int id) throws SQLException 
-//	{
-//		try {
-//			String query = "UPDATE user" + 
-//					   	   "SET profile_picture = ?" + 
-//					   	   "WHERE id == ?";
-//			
-//			File profilePicture = dataRepository.getProfilePicture();
-//			FileInputStream fis = new FileInputStream(profilePicture);
-//			ByteArrayOutputStream baos = new ByteArrayOutputStream();
-//			byte[] buf = new byte[1024];
-//			for(int readNum; (readNum = fis.read(buf)) != -1;) {
-//				baos.write(buf, 0, readNum);
-//			}
-//			fis.close();
-//			
-//			preparedStatement = connection.prepareStatement(query);
-//			preparedStatement.setBytes(1, baos.toByteArray());
-//			preparedStatement.setString(2, String.valueOf(id));
-//			
-//			preparedStatement.executeUpdate();
-//			preparedStatement.close();
-//		} catch (FileNotFoundException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		} catch (IOException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//
-//		preparedStatement.close();
-//	}
+	private void insertProfilePicture(PreparedStatement preparedStatement, 
+			CreateProfileData dataRepository, int id) throws SQLException 
+	{
+		try {
+			String query = "UPDATE user " + 
+					   	   "SET profile_picture = ? " + 
+					   	   "WHERE id = ?";
+			
+			File profilePicture = dataRepository.getProfilePicture();
+			FileInputStream fis = new FileInputStream(profilePicture);
+			ByteArrayOutputStream baos = new ByteArrayOutputStream();
+			byte[] buf = new byte[1024];
+			for(int readNum; (readNum = fis.read(buf)) != -1;) {
+				baos.write(buf, 0, readNum);
+			}
+			fis.close();
+			
+			preparedStatement = connection.prepareStatement(query);
+			preparedStatement.setBytes(1, baos.toByteArray());
+			preparedStatement.setString(2, String.valueOf(id));
+			
+			preparedStatement.executeUpdate();
+			preparedStatement.close();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		preparedStatement.close();
+	}
 }
