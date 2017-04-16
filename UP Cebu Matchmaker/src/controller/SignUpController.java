@@ -60,7 +60,7 @@ public class SignUpController implements Initializable {
 		ageCombox.getItems().addAll(ageList);
 		ppCombox.getItems().addAll("UPS", "NKE", "None");
 		heightCombox.getItems().addAll(heightList);  // not final
-		btCombox.getItems().addAll("Skinny", "Average", "Stocky");
+		btCombox.getItems().addAll("Skinny", "Average", "Stocky", "Heavyset", "Full-figured", "Athletic");
 		maleRBtn.setToggleGroup(gender);
 		femaleRBtn.setToggleGroup(gender);
 		yesRBtn.setToggleGroup(drinker);
