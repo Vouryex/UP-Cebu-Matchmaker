@@ -1,11 +1,16 @@
 package model;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import javafx.scene.image.Image;
 import main.SqLiteConnection;
 
 public class ProfilePageModel {
@@ -224,4 +229,56 @@ public class ProfilePageModel {
 		}
 		return movieList;
 	}
+	
+	public Image readPicture(int id) {
+        // update sql
+        String selectSQL = "SELECT profile_picture FROM user WHERE id = ?";
+        ResultSet rs = null;
+        FileOutputStream fos = null;
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+ 
+        try {
+            pstmt = connection.prepareStatement(selectSQL);
+            pstmt.setInt(1, id);
+            rs = pstmt.executeQuery();
+ 
+            // write binary stream into file
+            File file = new File("photo.jpg");
+            //fos = new FileOutputStream(file);
+ 
+            //System.out.println("Writing BLOB to file " + file.getAbsolutePath());
+            //while (rs.next()) {
+                InputStream input = rs.getBinaryStream("profile_picture");
+                fos = new FileOutputStream(file);
+                byte[] buffer = new byte[1024];
+                for(int readNum; (readNum = input.read(buffer)) != -1;) {
+                    fos.write(buffer, 0, readNum);
+                }
+            //}
+        } catch (SQLException | IOException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (pstmt != null) {
+                    pstmt.close();
+                }
+ 
+                if (conn != null) {
+                    conn.close();
+                }
+                if (fos != null) {
+                    fos.close();
+                }
+ 
+            } catch (SQLException | IOException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+        Image image = new Image("file:photo.jpg");
+        return image;
+    }
 }

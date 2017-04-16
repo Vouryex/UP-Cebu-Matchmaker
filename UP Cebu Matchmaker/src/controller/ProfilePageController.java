@@ -14,6 +14,8 @@ import javafx.event.ActionEvent;
 
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import model.ProfilePageModel;
 import javafx.scene.Parent;
@@ -46,6 +48,8 @@ public class ProfilePageController implements Initializable {
 	@FXML
 	private TextArea musicTxtA;
 	private int id;
+	@FXML
+	private ImageView displayPic;
 
 	// Event Listener on Hyperlink[#matchesLink].onAction
 	@FXML
@@ -93,6 +97,8 @@ public class ProfilePageController implements Initializable {
 		petsList = profilePageModel.retrievePets(id);
 		musicList = profilePageModel.retrieveMusic(id);
 		movieList = profilePageModel.retrieveMovies(id);
+		Image img = profilePageModel.readPicture(id);
+		System.out.println(img);
 		
 		String bodyText = "";
 		String sportsText = "";
@@ -137,6 +143,7 @@ public class ProfilePageController implements Initializable {
 		petTxtA.appendText(petsText);
 		musicTxtA.appendText("Music: " + musicText + "\n");
 		musicTxtA.appendText("Movie: " + movieText + "\n");
+		displayPic.setImage(img);
 	}
 	
 	public void setId(int id) {
