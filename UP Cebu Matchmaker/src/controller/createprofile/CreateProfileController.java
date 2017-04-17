@@ -110,4 +110,21 @@ public class CreateProfileController implements Initializable {
 	public void setId(int id) {
 		this.id = id;
 	}
+	
+	public void deleteUser(int id) throws SQLException {
+		createProfileModel.deleteMovies(id);
+		//createProfileModel.deleteMusic(id);
+		//createProfileModel.deletePets(id);
+		//createProfileModel.deleteHobbies(id);
+		//createProfileModel.deleteSports(id);
+		//createProfileModel.deleteBody(id);
+		//createProfileModel.deleteHeight(id);
+		//createProfileModel.deleteAge(id);
+		//createProfileModel.deleteGender(id);
+		//createProfileModel.deleteUser(id);
+	}
+	
+	public void deleteMusic(int id) throws SQLException {
+		createProfileModel.deleteMusic(id);
+	}
 }
