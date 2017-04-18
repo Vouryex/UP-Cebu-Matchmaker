@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Types;
 import java.util.ArrayList;
 
 public class Match {
@@ -26,7 +27,6 @@ public class Match {
 
 		// get probable matches
 		ArrayList<MatchesData> probableMatches = getProbableMatches(connection, genderInterestFiltered, genderFiltered, id);
-		System.out.println("probable matches length: " + probableMatches.size());
 		
 		// get data of user
 		MatchesData userData = getUserData(connection, id);
@@ -471,17 +471,31 @@ public class Match {
 	private static void insertTopMatches(Connection connection, int id, ArrayList<MatchesData> matches) throws SQLException {
 		ArrayList<MatchesData> ignore = new ArrayList<MatchesData>();
 		
-		MatchesData first = getTopMatch(matches, ignore);
-		ignore.add(first);
+		MatchesData first = null;
+		MatchesData second = null;
+		MatchesData third = null;
+		MatchesData fourth = null;
 		
-		MatchesData second = getTopMatch(matches, ignore);
-		ignore.add(second);
-		
-		MatchesData third = getTopMatch(matches, ignore);
-		ignore.add(third);
-		
-		MatchesData fourth = getTopMatch(matches, ignore);
-		ignore.add(fourth);
+		if(matches.size() >= 1) {
+			first = getTopMatch(matches, ignore);
+			ignore.add(first);
+		}
+
+		if(matches.size() >= 2) {
+			second = getTopMatch(matches, ignore);
+			ignore.add(second);
+		}
+
+		if(matches.size() >= 3) {
+			third = getTopMatch(matches, ignore);
+			ignore.add(third);
+		}
+
+		if(matches.size() >= 4) {
+			fourth = getTopMatch(matches, ignore);
+			ignore.add(fourth);
+		}
+
 		
 		if(idExistsRankedMatch(connection, id)) {
 			updateRankedMatches(connection, id, first, second, third, fourth);
@@ -527,13 +541,23 @@ public class Match {
 				   "SET first = ?, second = ?, third = ?, fourth = ? " +
 				   "WHERE user_id = ?";
 		PreparedStatement preparedStatement = connection.prepareStatement(query);
-		preparedStatement.setInt(1, first.getId());
-		preparedStatement.setInt(2, second.getId());
-		preparedStatement.setInt(3, third.getId());
-		preparedStatement.setInt(4, fourth.getId());
+		setIntOrNullMatches(preparedStatement, 1, first);
+		setIntOrNullMatches(preparedStatement, 2, second);
+		setIntOrNullMatches(preparedStatement, 3, third);
+		setIntOrNullMatches(preparedStatement, 4, fourth);
 		preparedStatement.setInt(5, id);
 		preparedStatement.executeUpdate();
 		preparedStatement.close();
+	}
+	
+	private static void setIntOrNullMatches(PreparedStatement preparedStatement,
+			int paramIndex, MatchesData data) throws SQLException 
+	{
+		if(data != null) {
+			preparedStatement.setInt(paramIndex, data.getId());
+		} else {
+			preparedStatement.setNull(paramIndex, Types.INTEGER);
+		}
 	}
 	
 	private static void insertRankedMatches(Connection connection, int id, MatchesData first, 
@@ -543,10 +567,10 @@ public class Match {
 				   "VALUES(?, ?, ?, ?, ?)";
 		PreparedStatement preparedStatement = connection.prepareStatement(query);
 		preparedStatement.setInt(1, id);
-		preparedStatement.setInt(2, first.getId());
-		preparedStatement.setInt(3, second.getId());
-		preparedStatement.setInt(4, third.getId());
-		preparedStatement.setInt(5, fourth.getId());
+		setIntOrNullMatches(preparedStatement, 2, first);
+		setIntOrNullMatches(preparedStatement, 3, second);
+		setIntOrNullMatches(preparedStatement, 4, third);
+		setIntOrNullMatches(preparedStatement, 5, fourth);
 		preparedStatement.executeUpdate();
 		preparedStatement.close();
 	}
