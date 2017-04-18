@@ -208,4 +208,174 @@ public class CreateProfileModel {
 
 		preparedStatement.close();
 	}
+	
+	public void deleteMovies(int id) throws SQLException {
+		String sql = "DELETE FROM movie_interests WHERE user_id = ?";
+		PreparedStatement pstmt = null;
+        try {
+        	pstmt = connection.prepareStatement(sql);
+            // set the corresponding param
+            pstmt.setInt(1, id);
+            // execute the delete statement
+            pstmt.executeUpdate();
+            pstmt.close();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+        	pstmt.close();
+        }
+	}
+	
+	public void deleteMusic(int id) throws SQLException {
+		String sql = "DELETE FROM music_interests WHERE user_id = ?";
+		PreparedStatement pstmt = null;
+        try {
+        	pstmt = connection.prepareStatement(sql);
+            // set the corresponding param
+            pstmt.setInt(1, id);
+            // execute the delete statement
+            pstmt.executeUpdate();
+ 
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+        	pstmt.close();
+        }
+	}
+	
+	public void deletePets(int id) throws SQLException {
+		String sql = "DELETE FROM pets_interests WHERE user_id = ?";
+		PreparedStatement pstmt = null;
+        try {
+        	pstmt = connection.prepareStatement(sql);
+            // set the corresponding param
+            pstmt.setInt(1, id);
+            // execute the delete statement
+            pstmt.executeUpdate();
+ 
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+        	pstmt.close();
+        }
+	}
+	
+	public void deleteHobbies(int id) throws SQLException {
+		String sql = "DELETE FROM hobbies_interests WHERE user_id = ?";
+		PreparedStatement pstmt = null;
+        try {
+        	pstmt = connection.prepareStatement(sql);
+            // set the corresponding param
+            pstmt.setInt(1, id);
+            // execute the delete statement
+            pstmt.executeUpdate();
+ 
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+        	pstmt.close();
+        }
+	}
+	
+	public void deleteSports(int id) throws SQLException {
+		String sql = "DELETE FROM sports_interests WHERE user_id = ?";
+		PreparedStatement pstmt = null;
+        try {
+        	pstmt = connection.prepareStatement(sql);
+            // set the corresponding param
+            pstmt.setInt(1, id);
+            // execute the delete statement
+            pstmt.executeUpdate();
+ 
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+        	pstmt.close();
+        }
+	}
+	
+	public void deleteBody(int id) throws SQLException {
+		String sql = "DELETE FROM body_interests WHERE user_id = ?";
+		PreparedStatement pstmt = null;
+        try {
+        	pstmt = connection.prepareStatement(sql);
+            // set the corresponding param
+            pstmt.setInt(1, id);
+            // execute the delete statement
+            pstmt.executeUpdate();
+ 
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+        	pstmt.close();
+        }
+	}
+	
+	public void deleteHeight(int id) throws SQLException {
+		String sql = "DELETE FROM height_interests WHERE user_id = ?";
+		PreparedStatement pstmt = null;
+        try {
+        	pstmt = connection.prepareStatement(sql);
+            // set the corresponding param
+            pstmt.setInt(1, id);
+            // execute the delete statement
+            pstmt.executeUpdate();
+ 
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+        	pstmt.close();
+        }
+	}
+	
+	public void deleteAge(int id) throws SQLException {
+		String sql = "DELETE FROM age_interests WHERE user_id = ?";
+		PreparedStatement pstmt = null;
+        try {
+        	pstmt = connection.prepareStatement(sql);
+            // set the corresponding param
+            pstmt.setInt(1, id);
+            // execute the delete statement
+            pstmt.executeUpdate();
+ 
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+        	pstmt.close();
+        }
+	}
+	
+	public void deleteGender(int id) throws SQLException {
+		String sql = "DELETE FROM gender_interests WHERE user_id = ?";
+		PreparedStatement pstmt = null;
+        try {
+        	pstmt = connection.prepareStatement(sql);
+            // set the corresponding param
+            pstmt.setInt(1, id);
+            // execute the delete statement
+            pstmt.executeUpdate();
+ 
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+        	pstmt.close();
+        }
+	}
+	
+	public void deleteUser(int id) throws SQLException {
+		String sql = "DELETE FROM user WHERE id = ?";
+		PreparedStatement pstmt = null;
+        try {
+        	pstmt = connection.prepareStatement(sql);
+            // set the corresponding param
+            pstmt.setInt(1, id);
+            // execute the delete statement
+            pstmt.executeUpdate();
+ 
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+        	pstmt.close();
+        }
+	}
 }

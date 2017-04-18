@@ -23,7 +23,7 @@ public class ProfilePageModel {
 		}
 	}
 	
-	public ArrayList<String> getInfo(int id) {
+	public ArrayList<String> getInfo(int id) throws SQLException {
 		ArrayList<String> info = new ArrayList<String>();
 		PreparedStatement preparedStatement = null;
 		ResultSet resultSet = null;
@@ -39,6 +39,9 @@ public class ProfilePageModel {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} finally {
+			preparedStatement.close();
+			resultSet.close();
 		}
 		return info;
 		
@@ -281,4 +284,24 @@ public class ProfilePageModel {
         Image image = new Image("file:photo.jpg");
         return image;
     }
+	
+	public int getID(String user) throws SQLException {
+		PreparedStatement preparedStatement = null;
+		ResultSet resultSet = null;
+		String query = "SELECT * FROM user WHERE username = ?";
+		int id = 0;
+		try {
+			preparedStatement = connection.prepareStatement(query);
+			preparedStatement.setString(1, user);
+			resultSet = preparedStatement.executeQuery();
+			id = resultSet.getInt("id");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			preparedStatement.close();
+			resultSet.close();
+		}
+		return id;
+	}
 }
