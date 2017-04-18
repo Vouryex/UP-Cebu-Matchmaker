@@ -295,8 +295,6 @@ public class ProfilePageModel {
 			preparedStatement.setString(1, user);
 			resultSet = preparedStatement.executeQuery();
 			id = resultSet.getInt("id");
-			preparedStatement.close();
-			resultSet.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
