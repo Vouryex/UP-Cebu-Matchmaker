@@ -218,7 +218,7 @@ public class CreateProfileModel {
             pstmt.setInt(1, id);
             // execute the delete statement
             pstmt.executeUpdate();
- 
+            pstmt.close();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         } finally {

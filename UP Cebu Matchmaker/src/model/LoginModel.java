@@ -49,7 +49,7 @@ public class LoginModel {
 		}
 	}
 	
-	public ArrayList<String> getInfo(String user) {
+	public ArrayList<String> getInfo(String user) throws SQLException {
 		ArrayList<String> info = new ArrayList<String>();
 		PreparedStatement preparedStatement = null;
 		ResultSet resultSet = null;
@@ -65,11 +65,14 @@ public class LoginModel {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} finally {
+			preparedStatement.close();
+			resultSet.close();
 		}
 		return info;
 	}
 	
-	public int getID(String user) {
+	public int getID(String user) throws SQLException {
 		PreparedStatement preparedStatement = null;
 		ResultSet resultSet = null;
 		String query = "SELECT * FROM user WHERE username = ?";
@@ -79,9 +82,14 @@ public class LoginModel {
 			preparedStatement.setString(1, user);
 			resultSet = preparedStatement.executeQuery();
 			id = resultSet.getInt("id");
+			preparedStatement.close();
+			resultSet.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} finally {
+			preparedStatement.close();
+			resultSet.close();
 		}
 		return id;
 	}
