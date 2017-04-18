@@ -15,6 +15,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import main.CreateProfileData;
+import main.Match;
 import model.CreateProfileModel;
 
 public class CreateProfileController implements Initializable {
@@ -75,6 +76,7 @@ public class CreateProfileController implements Initializable {
 		if(currPageNum == PageManager.maxPage()) {
 			try {
 				createProfileModel.insertData(dataRepository, id);
+				Match.update(id);
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
