@@ -23,7 +23,7 @@ public class ProfilePageModel {
 		}
 	}
 	
-	public ArrayList<String> getInfo(int id) {
+	public ArrayList<String> getInfo(int id) throws SQLException {
 		ArrayList<String> info = new ArrayList<String>();
 		PreparedStatement preparedStatement = null;
 		ResultSet resultSet = null;
@@ -39,6 +39,9 @@ public class ProfilePageModel {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} finally {
+			preparedStatement.close();
+			resultSet.close();
 		}
 		return info;
 		
@@ -282,7 +285,7 @@ public class ProfilePageModel {
         return image;
     }
 	
-	public int getID(String user) {
+	public int getID(String user) throws SQLException {
 		PreparedStatement preparedStatement = null;
 		ResultSet resultSet = null;
 		String query = "SELECT * FROM user WHERE username = ?";
@@ -292,9 +295,14 @@ public class ProfilePageModel {
 			preparedStatement.setString(1, user);
 			resultSet = preparedStatement.executeQuery();
 			id = resultSet.getInt("id");
+			preparedStatement.close();
+			resultSet.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} finally {
+			preparedStatement.close();
+			resultSet.close();
 		}
 		return id;
 	}
