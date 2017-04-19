@@ -23,7 +23,7 @@
          </image></ImageView>
       <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="480.0" layoutY="130.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="ball.png" />
+            <Image url="camera.png" />
          </image></ImageView>
       <Label layoutX="54.0" layoutY="98.0" text="About Him/Her" />
       <Label layoutX="264.0" layoutY="98.0" text="Your Interests" />
