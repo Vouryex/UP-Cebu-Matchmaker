@@ -8,7 +8,6 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginController">
    <children>
@@ -20,12 +19,12 @@
       <Button layoutX="493.0" layoutY="439.0" mnemonicParsing="false" onAction="#login" text="Login" />
       <TextField fx:id="usernameField" layoutX="435.0" layoutY="359.0" promptText="Username" />
       <PasswordField fx:id="passwordField" layoutX="435.0" layoutY="391.0" promptText="Password" />
-      <Label layoutX="57.0" layoutY="316.0" text="UP Cebu Matchmaker" wrapText="true">
-         <font>
-            <Font name="Jasmine Reminiscentse" size="64.0" />
-         </font>
-      </Label>
       <Hyperlink fx:id="signUpLink" layoutX="435.0" layoutY="416.0" onAction="#signUp" text="Sign up" />
       <Label fx:id="errorLbl" layoutX="226.0" layoutY="184.0" prefHeight="17.0" prefWidth="149.0" textFill="#eb0404" />
+      <ImageView fitHeight="118.0" fitWidth="364.0" layoutX="58.0" layoutY="320.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@logo.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
