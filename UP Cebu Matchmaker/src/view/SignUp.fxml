@@ -9,12 +9,14 @@
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SignUpController">
    <children>
-      <TabPane layoutX="43.0" layoutY="23.0" prefHeight="499.0" prefWidth="528.0" tabClosingPolicy="UNAVAILABLE">
+      <TabPane layoutX="36.0" layoutY="44.0" prefHeight="499.0" prefWidth="528.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
           <Tab text="Basic Information">
             <content>
@@ -28,6 +30,10 @@
                         <PasswordField fx:id="passwordField1" layoutX="150.0" layoutY="335.0" prefHeight="25.0" prefWidth="229.0" promptText="Retype Password" />
                         <Label fx:id="errorLbl1" layoutX="147.0" layoutY="367.0" prefHeight="20.0" prefWidth="183.0" wrapText="true" />
                         <TextField fx:id="usernameField" layoutX="150.0" layoutY="256.0" prefHeight="25.0" prefWidth="229.0" promptText="Username" />
+                        <ImageView fitHeight="25.0" fitWidth="30.0" layoutX="104.0" layoutY="256.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="smile.png" />
+                           </image></ImageView>
                         <Label layoutX="150.0" layoutY="133.0" text="Gender:" />
                         <RadioButton fx:id="maleRBtn" layoutX="147.0" layoutY="150.0" mnemonicParsing="false" selected="true" text="Male">
                            <toggleGroup>
@@ -40,11 +46,37 @@
                            </toggleGroup>
                         </RadioButton>
                         <ComboBox fx:id="ageCombox" layoutX="150.0" layoutY="206.0" prefHeight="25.0" prefWidth="227.0" />
+                        <ImageView fitHeight="25.0" fitWidth="30.0" layoutX="104.0" layoutY="335.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="password.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="25.0" fitWidth="30.0" layoutX="104.0" layoutY="296.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="password.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="61.0" fitWidth="44.0" layoutX="95.0" layoutY="172.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="age.png" />
+                           </image></ImageView>
+                        <ImageView fitHeight="25.0" fitWidth="30.0" layoutX="104.0" layoutY="135.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="gender.png" />
+                           </image></ImageView>
+                        <ImageView fitHeight="25.0" fitWidth="30.0" layoutX="104.0" layoutY="96.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="user.png" />
+                           </image></ImageView>
+                        <ImageView fitHeight="25.0" fitWidth="30.0" layoutX="104.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="user.png" />
+                           </image></ImageView>
                      </children>
                   </AnchorPane>
             </content>
           </Tab>
-          <Tab text="About You">
+          <Tab text="Personal Information">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
@@ -72,11 +104,36 @@
                         </RadioButton>
                         <Button fx:id="signUpBtn" layoutX="215.0" layoutY="395.0" mnemonicParsing="false" onAction="#signUp" text="Sign Up" />
                         <Label fx:id="lastErrorLbl" layoutX="183.0" layoutY="366.0" prefHeight="17.0" prefWidth="210.0" textAlignment="CENTER" />
+                        <ImageView fitHeight="35.0" fitWidth="40.0" layoutX="132.0" layoutY="307.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="drinker.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="35.0" fitWidth="40.0" layoutX="132.0" layoutY="232.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="body.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="35.0" fitWidth="40.0" layoutX="132.0" layoutY="95.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="political.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="35.0" fitWidth="40.0" layoutX="132.0" layoutY="162.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="height.png" />
+                           </image>
+                        </ImageView>
                      </children>
                   </AnchorPane>
             </content>
           </Tab>
         </tabs>
       </TabPane>
+      <Label layoutX="266.0" layoutY="6.0" text="Sign up">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
