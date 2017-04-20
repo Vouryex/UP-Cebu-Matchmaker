@@ -505,15 +505,25 @@ public class Match {
 	}
 	
 	private static MatchesData getTopMatch(ArrayList<MatchesData> matches, ArrayList<MatchesData> ignore) {
-		MatchesData top = matches.get(0);
+		int startIndex = getStartIndexMatches(matches, ignore);
+		MatchesData top = matches.get(startIndex);
 		
-		for(int i = 1; i < matches.size(); i++) {
+		for(int i = startIndex + 1; i < matches.size(); i++) {
 			if(matches.get(i).getScore() > top.getScore() && !containsMatchData(ignore, matches.get(i))) {
 				top = matches.get(i);
 			}
 		}
 		
 		return top;
+	}
+	
+	private static int getStartIndexMatches(ArrayList<MatchesData> matches, ArrayList<MatchesData> ignore) {
+		for(int i = 0 ; i < matches.size(); i++) {
+			if(!containsMatchData(ignore, matches.get(i))) {
+				return i;
+			}
+		}
+		return 0;
 	}
 	
 	private static boolean containsMatchData(ArrayList<MatchesData> dataList, MatchesData data) {
