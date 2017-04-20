@@ -1,5 +1,6 @@
 package main;
 
+import java.io.File;
 import java.util.ArrayList;
 
 public class MatchesData {
@@ -19,7 +20,12 @@ public class MatchesData {
 	private ArrayList<String> music;
 	private ArrayList<String> pets;
 	private ArrayList<String> sports;
+	private File profilePicture;
 	private int score;
+	
+	public MatchesData() {
+		
+	}
 	
 	public MatchesData(int id, int age, String bodyType, String drinker, int height, String politicalParty) {
 		this.id = id;
@@ -158,6 +164,14 @@ public class MatchesData {
 		this.sports = sports;
 	}
 	
+	public File getProfilePicture() {
+		return profilePicture;
+	}
+
+	public void setProfilePicture(File profilePicture) {
+		this.profilePicture = profilePicture;
+	}
+
 	public int getScore() {
 		return score;
 	}

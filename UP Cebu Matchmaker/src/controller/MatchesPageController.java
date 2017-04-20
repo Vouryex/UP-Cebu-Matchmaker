@@ -1,23 +1,30 @@
 package controller;
 
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-
+import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import javafx.event.ActionEvent;
+import javax.imageio.ImageIO;
 
-import javafx.scene.image.ImageView;
-import javafx.stage.Stage;
-import model.LoginModel;
+import javafx.embed.swing.SwingFXUtils;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
+import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
+import main.MatchesData;
+import model.LoginModel;
+import model.MatchesPageModel;
 
 public class MatchesPageController {
+	private MatchesPageModel matchesPageModel = new MatchesPageModel();
 	@FXML
 	private ImageView match1Img;
 	@FXML
@@ -34,6 +41,14 @@ public class MatchesPageController {
 	private Hyperlink match3Link;
 	@FXML
 	private Hyperlink match4Link;
+	@FXML
+	private Label match1Score;
+	@FXML
+	private Label match2Score;
+	@FXML
+	private Label match3Score;
+	@FXML
+	private Label match4Score;
 	@FXML
 	private Button backBtn;
 	private ArrayList<String> info;
@@ -60,6 +75,42 @@ public class MatchesPageController {
 		scene.getStylesheets().add("/theme/pastel.css");
 		stage.setScene(scene);
 		stage.show();
+	}
+	
+	public void initMatches(int id) throws SQLException, IOException {
+		ArrayList<MatchesData> matches = matchesPageModel.getMatches(id);
+		
+		for(int rank = 0; rank < matches.size(); rank++) {
+			MatchesData match = matches.get(rank);
+			BufferedImage matchPictureBuffered = ImageIO.read(match.getProfilePicture());
+			Image matchPicture = SwingFXUtils.toFXImage(matchPictureBuffered, null);
+			ImageView imageViewRanked = getImageView(rank);
+			imageViewRanked.setImage(matchPicture);
+			Label scoreRanked = getLabel(rank);
+			scoreRanked.setText(match.getScore() + "%");
+		}
+		
+	}
+	
+	private ImageView getImageView(int rank) {
+		if(rank == 0) {
+			return match1Img;
+		} else if(rank == 1) {
+			return match2Img;
+		} else if(rank == 2) {
+			return match3Img;
+		} else {
+			return match4Img;
+		}
+	}
+	
+	private Label getLabel(int rank) {
+		switch(rank) {
+		case 0: return match1Score;
+		case 1: return match2Score;
+		case 2: return match3Score;
+		default: return match4Score;
+		}
 	}
 	
 	public void setUsername(String username) {
