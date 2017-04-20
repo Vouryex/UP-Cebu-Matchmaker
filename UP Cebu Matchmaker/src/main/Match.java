@@ -273,7 +273,7 @@ public class Match {
 	
 	private static void compare(MatchesData userData, ArrayList<MatchesData> probableMatches) {
 		for(MatchesData probableMatch : probableMatches) {
-			int score = 0;
+			float score = 0;
 			score += compareAge(userData.getAgeMinInterests(), 
 								userData.getAgeMaxInterests(), probableMatch.getAge(),
 								probableMatch.getAgeMinInterests(),
@@ -281,27 +281,27 @@ public class Match {
 			
 			score += compareBodyType(userData.getBodyTypeInterests(), probableMatch.getBodyType(),
 									 probableMatch.getBodyTypeInterests(), userData.getBodyType());
-			
+
 			score += compareDrinker(userData.getDrinker(), probableMatch.getDrinker());
-			
+
 			score += compareHeight(userData.getHeightMinInterests(),
 								   userData.getHeightMaxInterests(), probableMatch.getHeight(),
 								   probableMatch.getHeightMinInterests(),
-								   probableMatch.getHeightMinInterests(), userData.getHeight());
-			
+								   probableMatch.getHeightMaxInterests(), userData.getHeight());
+
 			score += comparePoliticalParty(userData.getPoliticalParty(), probableMatch.getPoliticalParty());
-			
+
 			score += compareHobbies(userData.getHobbies(), probableMatch.getHobbies());
-			
+
 			score += compareMovies(userData.getMovies(), probableMatch.getMovies());
-			
+
 			score += compareMusic(userData.getMusic(), probableMatch.getMusic());
-			
+
 			score += comparePets(userData.getPets(), probableMatch.getPets());
-			
+
 			score += compareSports(userData.getSports(), probableMatch.getSports());
-			
-			probableMatch.setScore(score);
+
+			probableMatch.setScore((int)score);
 		}
 	}
 	
@@ -312,11 +312,11 @@ public class Match {
 		if(matchAge >= userAgeMinInterest && matchAge <= userAgeMaxInterest &&
 		   userAge >= matchAgeMinInterest && userAge <= matchAgeMaxInterest) 
 		{
-			score = 11;
+			score = 16;
 		} else if((matchAge >= userAgeMinInterest && matchAge <= userAgeMaxInterest) ||
 				  (userAge >= matchAgeMinInterest && userAge <= matchAgeMaxInterest)) 
 		{
-			score = 5;
+			score = 10;
 		}
 		
 		return score;
@@ -328,9 +328,9 @@ public class Match {
 		int score = 0;
 		
 		if(dataFound(userBodyTypeInterests, matchBodyType) && dataFound(matchBodyTypeInterests, userBodyType)) {
-			score = 10;
+			score = 14;
 		} else if(dataFound(userBodyTypeInterests, matchBodyType) || dataFound(matchBodyTypeInterests, userBodyType)) {
-			score = 5;
+			score = 9;
 		}
 		
 		return score;
@@ -361,11 +361,11 @@ public class Match {
 		if(matchHeight >= userHeightMinInterest && matchHeight <= userHeightMaxInterest &&
 		   userHeight >= matchHeightMinInterest && userHeight <= matchHeightMaxInterest) 
 		{
-			score = 11;
+			score = 12;
 		} else if((matchHeight >= userHeightMinInterest && matchHeight <= userHeightMaxInterest) ||
 				  (userHeight >= matchHeightMinInterest && userHeight <= matchHeightMaxInterest)) 
 		{
-			score = 5;
+			score = 7;
 		}
 		
 		return score;
@@ -373,58 +373,58 @@ public class Match {
 	
 	private static int comparePoliticalParty(String userParty, String matchParty) {
 		if(userParty.equals(matchParty)) {
-			return 9;
+			return 12;
 		} else {
 			return 0;
 		}
 	}
 	
-	private static int compareHobbies(ArrayList<String> userHobbies, ArrayList<String> matchHobbies) {
-		int score = 15;
+	private static float compareHobbies(ArrayList<String> userHobbies, ArrayList<String> matchHobbies) {
+		float score = 9;
 		
 		int selected = selected(userHobbies, matchHobbies);
 		int matches = matches(userHobbies, matchHobbies);
-		score = (int) (score * ((float)(matches / selected)));
+		score =  score * ((float)matches / selected);
 		
 		return score;
 	}
 	
-	private static int compareMovies(ArrayList<String> userMovies, ArrayList<String> matchMovies) {
-		int score = 12;
+	private static float compareMovies(ArrayList<String> userMovies, ArrayList<String> matchMovies) {
+		float score = 9;
 		
 		int selected = selected(userMovies, matchMovies);
 		int matches = matches(userMovies, matchMovies);
-		score = (int) (score * ((float)(matches / selected)));
+		score = score * ((float)matches / selected);
 		
 		return score;
 	}
 	
-	private static int compareMusic(ArrayList<String> userMusic, ArrayList<String> matchMusic) {
-		int score = 11;
+	private static float compareMusic(ArrayList<String> userMusic, ArrayList<String> matchMusic) {
+		float score = 9;
 		
 		int selected = selected(userMusic, matchMusic);
 		int matches = matches(userMusic, matchMusic);
-		score = (int) (score * ((float)(matches / selected)));
+		score = score * ((float)matches / selected);
 		
 		return score;
 	}
 	
-	private static int comparePets(ArrayList<String> userPets, ArrayList<String> matchPets) {
-		int score = 6;
+	private static float comparePets(ArrayList<String> userPets, ArrayList<String> matchPets) {
+		float score = 6;
 		
 		int selected = selected(userPets, matchPets);
 		int matches = matches(userPets, matchPets);
-		score = (int) (score * ((float)(matches / selected)));
+		score = score * ((float)matches / selected);
 		
 		return score;
 	}
 	
-	private static int compareSports(ArrayList<String> userSports, ArrayList<String> matchSports) {
-		int score = 6;
+	private static float compareSports(ArrayList<String> userSports, ArrayList<String> matchSports) {
+		float score = 8;
 		
 		int selected = selected(userSports, matchSports);
 		int matches = matches(userSports, matchSports);
-		score = (int) (score * ((float)(matches / selected)));
+		score = score * ((float)matches / selected);
 		
 		return score;
 	}
