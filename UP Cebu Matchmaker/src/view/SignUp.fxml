@@ -16,7 +16,7 @@
 
 <AnchorPane prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SignUpController">
    <children>
-      <TabPane layoutX="36.0" layoutY="44.0" prefHeight="499.0" prefWidth="528.0" tabClosingPolicy="UNAVAILABLE">
+      <TabPane layoutX="36.0" layoutY="55.0" prefHeight="499.0" prefWidth="528.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
           <Tab text="Basic Information">
             <content>
@@ -130,7 +130,7 @@
           </Tab>
         </tabs>
       </TabPane>
-      <Label layoutX="266.0" layoutY="6.0" text="Sign up">
+      <Label layoutX="266.0" layoutY="16.0" text="Sign up">
          <font>
             <Font size="20.0" />
          </font>
