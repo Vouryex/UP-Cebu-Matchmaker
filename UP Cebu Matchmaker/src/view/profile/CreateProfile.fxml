@@ -41,5 +41,10 @@
       </ImageView>
       <Label layoutX="55.0" layoutY="469.0" text="Back" />
       <Label layoutX="520.0" layoutY="469.0" text="Next" />
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="395.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="logo.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
