@@ -20,7 +20,7 @@
       <TextField fx:id="usernameField" layoutX="435.0" layoutY="359.0" promptText="Username" />
       <PasswordField fx:id="passwordField" layoutX="435.0" layoutY="391.0" promptText="Password" />
       <Hyperlink fx:id="signUpLink" layoutX="435.0" layoutY="416.0" onAction="#signUp" text="Sign up" />
-      <Label fx:id="errorLbl" layoutX="226.0" layoutY="184.0" prefHeight="17.0" prefWidth="149.0" textFill="#eb0404" />
+      <Label fx:id="errorLbl" layoutX="435.0" layoutY="333.0" prefHeight="17.0" prefWidth="149.0" textFill="#eb0404" />
       <ImageView fitHeight="118.0" fitWidth="364.0" layoutX="58.0" layoutY="320.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@logo.png" />
