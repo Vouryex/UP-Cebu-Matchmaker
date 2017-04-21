@@ -36,6 +36,7 @@ public class ProfilePageModel {
 			info.add(resultSet.getString("surname"));
 			info.add(((Integer) resultSet.getInt("age")).toString());
 			info.add(resultSet.getString("username"));
+			info.add(resultSet.getString("political_party"));
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -232,6 +233,7 @@ public class ProfilePageModel {
 		}
 		return movieList;
 	}
+	
 	
 	public Image readPicture(int id) {
         // update sql

@@ -21,6 +21,7 @@
       <PasswordField fx:id="passwordField" layoutX="435.0" layoutY="391.0" promptText="Password" />
       <Hyperlink fx:id="signUpLink" layoutX="435.0" layoutY="416.0" onAction="#signUp" text="Sign up" />
       <Label fx:id="errorLbl" layoutX="435.0" layoutY="333.0" prefHeight="17.0" prefWidth="149.0" textFill="#eb0404" />
+      <Label layoutX="82.0" layoutY="475.0" text="Copyright © 2017 UPCEBU MATCHMAKER All rights reserved" />
       <ImageView fitHeight="118.0" fitWidth="364.0" layoutX="58.0" layoutY="320.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@logo.png" />

@@ -14,7 +14,7 @@
 <AnchorPane prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ProfilePageController">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" blendMode="SRC_ATOP" fill="#d6f8f0" height="134.0" layoutX="25.0" layoutY="300.0" opacity="0.73" stroke="BLACK" strokeType="INSIDE" width="171.0" />
-      <ImageView fx:id="displayPic" fitHeight="134.0" fitWidth="199.0" layoutX="26.0" layoutY="99.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="displayPic" fitHeight="134.0" fitWidth="199.0" layoutX="25.0" layoutY="99.0" pickOnBounds="true" preserveRatio="true" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d6f8f0" height="69.0" layoutY="8.0" opacity="0.73" stroke="BLACK" strokeType="INSIDE" width="600.0" />
       <Label layoutX="14.0" layoutY="25.0" prefHeight="35.0" prefWidth="66.0" text="Welcome">
          <font>
@@ -26,18 +26,22 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <Label fx:id="usernameHead" layoutX="229.0" layoutY="104.0" prefHeight="36.0" prefWidth="128.0">
+      <Label fx:id="usernameHead" alignment="CENTER" layoutX="235.0" layoutY="104.0" prefHeight="36.0" prefWidth="112.0" textAlignment="CENTER">
          <font>
             <Font name="Trebuchet MS Bold" size="24.0" />
          </font>
       </Label>
       <Hyperlink fx:id="editLink" layoutX="31.0" layoutY="256.0" onAction="#editLinkClick" prefHeight="23.0" prefWidth="142.0" text="edit your profile" />
       <Hyperlink fx:id="matchesLink" layoutX="31.0" layoutY="231.0" onAction="#matchesLinkClick" prefHeight="23.0" prefWidth="142.0" text="your matches" />
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="379.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="382.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="logo.png" />
          </image>
       </ImageView>
+      <Label fx:id="lastName" layoutX="361.0" layoutY="104.0" prefHeight="36.0" prefWidth="112.0">
+         <font>
+            <Font name="Trebuchet MS Bold" size="24.0" />
+         </font></Label>
       <Label layoutX="35.0" layoutY="286.0" prefHeight="59.0" prefWidth="66.0" text="Information" textFill="#1a1a1b" />
       <Label layoutX="34.0" layoutY="384.0" text="Political Party :">
          <font>
@@ -48,12 +52,12 @@
          <font>
             <Font size="11.0" />
          </font></Label>
-      <Label fx:id="ageLbl" layoutX="82.0" layoutY="349.0" prefHeight="23.0" prefWidth="87.0">
+      <Label fx:id="ageLbl" layoutX="70.0" layoutY="348.0" prefHeight="23.0" prefWidth="87.0">
          <font>
-            <Font name="Trebuchet MS" size="11.0" />
+            <Font size="11.0" />
          </font>
       </Label>
-      <Label layoutX="108.0" layoutY="381.0" prefHeight="23.0" prefWidth="87.0">
+      <Label fx:id="polpar" layoutX="108.0" layoutY="381.0" prefHeight="23.0" prefWidth="87.0">
          <font>
             <Font size="11.0" />
          </font></Label>
